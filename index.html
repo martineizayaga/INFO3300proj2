@@ -1,0 +1,253 @@
+<html>
+<head>
+<title> Project 2 </title>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+<svg width="1000", height="500"></svg>
+<script>
+
+var heights_array = []
+var priority_order = []
+var building_data = []
+var height_added = []
+var padding = 10;
+var height = 500;
+var width = 1000;
+var NO_BUILDINGS = 40;
+
+// Now create a plot
+var svg = d3.select("svg")
+
+var heightScale = d3.scaleLinear()
+.domain([2000,0])
+.range([height,0]);
+
+ /**
+ * Randomize array element order in-place.
+ * Function taken from: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+ */
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+function determineBucket(height){
+	if (height > 530){
+  		return 0;
+  	}
+  	else if (height > 330){
+  		return 1;
+  	}
+  	else if (height > 260){
+  		return 2;
+  	}
+  	else if (height > 190){
+  		return 3;
+  	}
+  	else {
+  		return 4;
+  	}
+}
+
+function mutateRow(row) {
+  row["Year"] = Number(row["Year"])
+  row["Height"] = row["Height"].replace(/\D/g, '');
+  return row;
+}
+
+function callback(error, data) {
+  data = data.filter(function(d) { return d.Year > 0})
+
+  var buckets = [0,0,0,0,0];
+  var buckets2 = [0,0,0,0,0];
+
+  for (var x = 0; x < data.length; x++){
+  		buckets[determineBucket(data[x].Height)] += 1
+  }
+
+  var sum = 0;
+
+  for (var y = 0; y < 5; y++){
+  	buckets2[y] = Math.round(buckets[y] * NO_BUILDINGS / data.length);
+  	sum += buckets2[y];
+  }
+
+  // MAY HAVE TO INCLUDE SOMETHING HERE TO ADJUST NUMBER OF BUILDINGS IF THEY DON'T ADD TO NO_BUILDINGS
+
+  var heights = []
+
+  for (var y = 0; y < NO_BUILDINGS; y++){
+
+  	var bucket = Math.floor(Math.random() * 5);
+
+  	while (buckets2[bucket] == 0){
+  		bucket = Math.floor(Math.random() * 5);
+  	}
+
+  	buckets2[bucket] = buckets2[bucket] - 1;
+
+  	if (bucket == 0){
+  		heights.push(750 + Math.floor(Math.random() * 100) - 50)
+  	}
+  	else if (bucket == 1){
+  		heights.push(430 + Math.floor(Math.random() * 100) - 50)
+  	}
+  	else if (bucket == 2){
+  		heights.push(295 + Math.floor(Math.random() * 50) - 25)
+  	}
+  	else if (bucket == 3){
+  		heights.push(225 + Math.floor(Math.random() * 50) - 25)
+  	}
+  	else{
+  		heights.push(155 + Math.floor(Math.random() * 50) - 25)
+  	}
+  }
+
+  shuffleArray(heights);
+
+  var p = [[],[],[],[],[]];
+  var sums = [0,0,0,0,0];
+
+	for (var z = 0; z < NO_BUILDINGS; z++){
+		var b = determineBucket(heights[z]);
+		p[b].push(z);
+		sums[b] += heights[z];
+	}
+	for (var y = 0; y < 5; y++){
+		shuffleArray(p[y]);
+	}
+
+
+	for (var y = 0; y < 5; y++){
+		height_added.push(sums[y] / buckets[y]);
+	}
+	heights_array = heights;
+	priority_order = p; 
+	building_data = data.sort(function(a, b) { 
+    return a.Year - b.Year;
+	});
+
+  /* Now add a line
+  var lineGenerator = d3.line()
+  .x(d => dateScale(d.Date))
+  .y(d => yScale(d.Value));
+  
+  svg.append("path")
+  .datum(data)
+  .attr("d", lineGenerator)
+  .style("stroke", "black")
+  .attr("stroke-width", 1)
+  .style("fill", "none");
+
+  svg.selectAll(".dot")
+	.data(data)
+  .enter().append("circle") // Uses the enter().append() method
+	.attr("class", "dot") // Assign a class for styling
+	.attr("cx", function(d) { return dateScale(d.Date) })
+	.attr("cy", function(d) { return yScale(d.Value) })
+	.attr("r", 2)
+	.attr("fill",function(d) { return d.Prelim == -1 ? "orange" : "teal" })
+
+  // Add axes
+  svg.append("g").call(d3.axisLeft(yScale));
+  svg.append("g").call(d3.axisBottom(dateScale).tickFormat(d3.timeFormat("%Y")))
+  .attr("transform", "translate(0," + (300) + ")");
+  
+  // Add axis labels
+  svg.append("text").attr("transform", "translate(0, -20)").text("Monthly Job Change");
+  svg.append("text").attr("transform", "rotate(270) translate(-170, -32)").text("Job Change");
+  svg.append("text").attr("transform", "translate(200, 335)").text("Date"); */
+}
+
+d3.select("#year").on("input", function(evt, v) {
+  drawBuildings(document.getElementById("year").value, heights_array, priority_order, building_data);
+  console.log("hi");
+})
+
+d3.csv("seattle.csv", mutateRow, callback);
+
+function drawBuildings(year, heights, priorities, data){
+	dataset = data.filter(function(d) { return d.Year <= year})
+
+	var current_heights = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+	for (var x = 0; x < dataset.length; x++){
+
+		var bucket = determineBucket(dataset[x].Height);
+		var building_number = 0
+		while (current_heights[priorities[bucket][building_number]] >= heights[priorities[bucket][building_number]] - 5){
+			building_number += 1;
+		}
+		var num = priorities[bucket][building_number];
+
+		if (heights[num] - current_heights[num] >= height_added[bucket]){
+			current_heights[num] += height_added[bucket];
+
+			svg.append("rect")
+    	.attr("x", (width / NO_BUILDINGS) * num)
+    	.attr("y", height - heightScale(current_heights[num]))
+    	.attr("width", width / NO_BUILDINGS)
+    	.attr("height", heightScale(height_added[bucket]))
+    	.attr("fill", "black");    	
+		}
+		else {
+			var height_leftover = height_added[bucket] - (heights[num] - current_heights[num]);
+			current_heights[num] = heights[num];
+
+			svg.append("rect")
+    	.attr("x", (width / NO_BUILDINGS) * num)
+    	.attr("y", height - heightScale(heights[num]))
+    	.attr("width", width / NO_BUILDINGS)
+    	.attr("height", heightScale(heights[num] - current_heights[num]))
+    	.attr("fill", "black");
+
+    	building_number += 1;
+    	num2 = priorities[bucket][building_number];
+
+    	current_heights[num2] += height_leftover;
+
+			svg.append("rect")
+    	.attr("x", (width / NO_BUILDINGS) * num2)
+    	.attr("y", height - heightScale(current_heights[num2]))
+    	.attr("width", width / NO_BUILDINGS)
+    	.attr("height", heightScale(height_leftover))
+    	.attr("fill", "black");  
+		}
+    
+	}
+
+}
+
+var i = 1904;                     //  set your counter to 1
+
+function animate() {           //  create a loop function
+   setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+      drawBuildings(i, heights_array, priority_order, building_data);          
+      document.getElementById("date").innerHTML = i;
+      i++;                     //  increment the counter
+      if (i < 2019) {            //  if the counter < 10, call the loop function
+         animate();             //  ..  again which will trigger another 
+      }                        //  ..  setTimeout()
+   }, 100)
+}
+
+function show(){
+	animate();
+}
+
+
+</script>
+<br>
+<button type="button" onclick="show()">Animate!</button><br>
+Year: <input id="year" type="range" min="1880" max="2018" value="1880" style="width: 500px"><br>
+<p id="date"></p>
+
+
+
+</body>
+</html>
