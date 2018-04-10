@@ -1,10 +1,8 @@
 <html>
 <head>
-<title>INFO 3300 - Data-driven Web Applications</title>
+<title>Animation</title>
 <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 <style>
 body { font-family: 'Slabo 27px', Calibri, sans-serif; }
 svg { border: solid #ccc 1px; }
@@ -12,7 +10,7 @@ svg { border: solid #ccc 1px; }
 </head>
 <body>
 
-<div id="plot">
+<div id="buttons">
 <p>
   <button id="addBar">Add Bar</button>
   <button id="clearBars">Clear Bars</button>
@@ -25,7 +23,10 @@ var height = 500;
 var width = 500;
 var padding = 50;
 
-var svg = d3.select("#plot").append("svg").attr("height", height).attr("width", width);
+var svg = d3.select("#buttons")
+  .append("svg")
+  .attr("height", height)
+  .attr("width", width);
 
 var container = svg.append("g")
   .attr("transform", "translate("+padding+","+padding+")");
@@ -40,12 +41,60 @@ var line = container.append("line")
   .attr("y2", height-2*padding)
   .style("stroke", "#aaa");
 
+var barList = [];
+
+//Generates a random x position, for the Add Bar button
+function randX() {
+  return Math.floor(Math.random()*(cityLength-barWidth));
+}
+
+/*To animate a group of bars falling down, call addBar for each bar, then createBars() to add svg elements and animate them*/
+
+//Adds a bar object to the array
+function addBar(xPos, yPos, finalHeight, barHeight, barWidth) {
+  var newBar = {xPos: xPos, yPos: yPos, finalHeight: finalHeight, barHeight: barHeight, barWidth: barWidth};
+  barList = barList.concat(newBar);
+  return newBar;
+}
+
+//Takes all the added bar objects and creates an svg rectangle, then animates them
+function createBars() {
+  //console.log(barList);
+  var bars = container.selectAll("rect")
+    .data(barList)
+    .enter()
+      .append("rect")
+      .attr("width", d => d.barWidth)
+      .attr("height", d => d.barHeight)
+      .attr("x", d => d.xPos)
+      .attr("y", function (d) {
+        var barHeight = d.barHeight;
+        return -barHeight-padding;
+      })
+      .style("fill", "white")
+    .exit();
+  dropBars(container.selectAll("rect"));
+}
+
+//Called by createBars, does the actual animation
+function dropBars(bars) {
+  //console.log(bars);
+  bars.transition().duration(1500)
+  .attr("y", function(d) {
+    return height-d.barHeight-2*padding;
+  })
+  .style("fill", "#415068")
+  .style("opacity", 0.7);
+}
+
+//This function is for the Add Bar button
 function dropBar(barHeight) {
-  var randX = Math.floor(Math.random()*(cityLength-barWidth));
+  var xPos = randX();
+  barList = barList.concat({xPos: xPos, yPos: height-barHeight-2*padding, finalHeight: 10, barWidth: barWidth, barHeight: barHeight});
   var bar = container
     .append("rect")
     .attr("class", "bar")
-    .attr("x", randX)
+    .attr("x", xPos)
     .attr("y", -barHeight-padding)
     .attr("width", barWidth)
     .attr("height", barHeight)
@@ -53,8 +102,9 @@ function dropBar(barHeight) {
     .style("opacity", 0.7);
 
   bar.transition().duration(1500)
-  .attr("y", height-2*padding-barHeight)
-  .style("fill", "#415068");
+  .attr("y", height-barHeight-2*padding)
+  .style("fill", "#415068")
+  .style("opacity", 0.7);
 }
 
 d3.select("#addBar").on("click", function() {
@@ -62,6 +112,7 @@ d3.select("#addBar").on("click", function() {
 });
 
 d3.select("#clearBars").on("click", function() {
+  barList = [];
   container.selectAll("rect").remove();
 });
 
