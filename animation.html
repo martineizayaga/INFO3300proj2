@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>INFO 3300 - Data-driven Web Applications</title>
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<style>
+body { font-family: 'Slabo 27px', Calibri, sans-serif; }
+svg { border: solid #ccc 1px; }
+</style>
+</head>
+<body>
+
+<div id="plot">
+<p>
+  <button id="addBar">Add Bar</button>
+  <button id="clearBars">Clear Bars</button>
+</p>
+</div>
+
+<script>
+
+var height = 500;
+var width = 500;
+var padding = 50;
+
+var svg = d3.select("#plot").append("svg").attr("height", height).attr("width", width);
+
+var container = svg.append("g")
+  .attr("transform", "translate("+padding+","+padding+")");
+
+var cityLength = width-2*padding;
+var barWidth = 20;
+
+var line = container.append("line")
+  .attr("x1", 0)
+  .attr("x2", cityLength)
+  .attr("y1", height-2*padding)
+  .attr("y2", height-2*padding)
+  .style("stroke", "#aaa");
+
+function dropBar(barHeight) {
+  var randX = Math.floor(Math.random()*(cityLength-barWidth));
+  var bar = container
+    .append("rect")
+    .attr("class", "bar")
+    .attr("x", randX)
+    .attr("y", -barHeight-padding)
+    .attr("width", barWidth)
+    .attr("height", barHeight)
+    .style("fill", "white")
+    .style("opacity", 0.7);
+
+  bar.transition().duration(1500)
+  .attr("y", height-2*padding-barHeight)
+  .style("fill", "#415068");
+}
+
+d3.select("#addBar").on("click", function() {
+  dropBar(Math.floor(Math.random()*300));
+});
+
+d3.select("#clearBars").on("click", function() {
+  container.selectAll("rect").remove();
+});
+
+</script>
+
+</body>
+</html>
