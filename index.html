@@ -4,7 +4,8 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 <body>
-<svg width="1000", height="500"></svg>
+<h1> Seattle </h1>
+<svg width="500", height="250"></svg>
 <script>
 
 var heights_array = [] // array (length 40) of the final heights of each building
@@ -12,8 +13,8 @@ var priority_order = [] // array (length 5) of the order that the buildings will
 var building_data = [] // the csv data
 var height_added = [] // array (length 5) of the heights added each time a building of a particular height brakcet is built
 var padding = 10;
-var height = 500;
-var width = 1000;
+var height = 250;
+var width = 500;
 var NO_BUILDINGS = 40; // number of buildings in the final skyline
 var current_heights = []; // array (length 40) to keep track of the current heights of the buildings in the svg during animation
 
@@ -84,35 +85,26 @@ function callback(error, data) {
 
   var heights = [] //used to generate the heights_array global array
 
-  // for loop that assigns each position in the svg to a specific height bracket, 
+  // this section of code assigns each position in the svg to a specific height bracket, 
   // determines the eventual height of the building in that position
   // and stores this value in heights array
-  for (var y = 0; y < NO_BUILDINGS; y++){
+  data = data.sort(function(a, b) { 
+    return b.Height - a.Height;
+	});
 
-  	var bucket = Math.floor(Math.random() * 5);
-
-  	while (buckets2[bucket] == 0){
-  		bucket = Math.floor(Math.random() * 5);
+  for (var y = 0; y < 5; y++){
+  	sum_previous = 0;
+  	for (var z = 0; z < y; z++){
+  		sum_previous += buckets[z];
   	}
-
-  	buckets2[bucket] = buckets2[bucket] - 1;
-
-  	if (bucket == 0){
-  		heights.push(750 + Math.floor(Math.random() * 100) - 50)
-  	}
-  	else if (bucket == 1){
-  		heights.push(430 + Math.floor(Math.random() * 100) - 50)
-  	}
-  	else if (bucket == 2){
-  		heights.push(295 + Math.floor(Math.random() * 50) - 25)
-  	}
-  	else if (bucket == 3){
-  		heights.push(225 + Math.floor(Math.random() * 50) - 25)
-  	}
-  	else{
-  		heights.push(155 + Math.floor(Math.random() * 50) - 25)
+  	marker = sum_previous;
+  	for (var j = 0; j < buckets2[y]; j++){
+  		heights.push(Number(data[marker].Height));
+  		marker += Math.floor(buckets[y]/buckets2[y]);
   	}
   }
+
+  console.log(heights)
 
   // randomize the locations of the buildings in the svg
   shuffleArray(heights);
@@ -282,6 +274,8 @@ function animate() {           //  create a loop function
       fallBuildings(i, heights_array, priority_order, building_data);          
       document.getElementById("date").innerHTML = i;
       document.getElementById("year").value = i;
+      document.getElementById("buildings").innerHTML = 
+  "# of High Rises: " + building_data.filter(function(d) { return d.Year <= i}).length;
       i++;                     //  increment the counter
       if (i < 2019) {            //  if the counter < 10, call the loop function
          animate();             //  ..  again which will trigger another 
@@ -291,6 +285,7 @@ function animate() {           //  create a loop function
 
 function show(){
 	svg.selectAll("*").remove();
+	i = 1904;    
 	current_heights = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	animate();
 }
@@ -300,6 +295,8 @@ function slide(){
 	current_heights = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	drawBuildings(document.getElementById("year").value, heights_array, priority_order, building_data);
   document.getElementById("date").innerHTML = document.getElementById("year").value;
+  document.getElementById("buildings").innerHTML = 
+  "# of High Rises: " + building_data.filter(function(d) { return d.Year <= document.getElementById("year").value}).length;
 }
 
 
@@ -307,7 +304,8 @@ function slide(){
 <br><br>
 <button type="button" onclick="show()">Animate!</button><br><br>
 Year: <input id="year" oninput="slide()" type="range" min="1880" max="2018" value="1880" style="width: 500px">
-<p id="date" style="font-size:40px;">1880</p>
+<p id="date" style="font-size:20px;">1880</p>
+<p id="buildings" style="font-size:20px;"># of High Rises: 0</p>
 
 
 
