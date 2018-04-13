@@ -1,7 +1,11 @@
 <html>
 <head>
 <title> Project 2 </title>
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 <script src="https://d3js.org/d3.v4.min.js"></script>
+<style>
+body { font-family: Segoe UI; }
+</style>
 </head>
 <body>
 <h1> Seattle </h1>
@@ -34,6 +38,14 @@ svg.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + "
 .call(d3.axisLeft(yScale));
 
 svg.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("Height");
+
+svg.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2*padding+")").text("1880")
+  .style("font-size", "150px")
+  .style("fill", "#bcbcbc")
+  .style("font-weight", 900)
+  .style("text-anchor", "middle")
+  .style("dominant-baseline", "central")
+  .attr("id", "yearText");
 
  /**
  * Randomize array element order in-place.
@@ -282,6 +294,7 @@ function animate() {           //  create a loop function
       fallBuildings(i, heights_array, priority_order, building_data);          
       document.getElementById("date").innerHTML = i;
       document.getElementById("year").value = i;
+      d3.select("#yearText").text(""+i);
       //document.getElementById("buildings").innerHTML = 
   "# of High Rises: " + building_data.filter(function(d) { return d.Year <= i}).length;
       i++;                     //  increment the counter
@@ -297,6 +310,13 @@ function show(){
 	.call(d3.axisLeft(yScale));
 	svg.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("Height");
 	i = 1904;    
+  svg.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+i)
+  .style("font-size", "150px")
+  .style("fill", "#bcbcbc")
+  .style("font-weight", 900)
+  .style("text-anchor", "middle")
+  .style("dominant-baseline", "central")
+  .attr("id", "yearText");
 	current_heights = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	animate();
 }
@@ -309,6 +329,14 @@ function slide(){
 	current_heights = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	drawBuildings(document.getElementById("year").value, heights_array, priority_order, building_data);
   document.getElementById("date").innerHTML = document.getElementById("year").value;
+  svg.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+document.getElementById("year").value)
+  .style("font-size", "150px")
+  .style("fill", "#bcbcbc")
+  .style("font-weight", 900)
+  .style("text-anchor", "middle")
+  .style("dominant-baseline", "central")
+  .attr("id", "yearText");
+  //yearText.text = document.getElementById("year").value;
   //document.getElementById("buildings").innerHTML = "# of High Rises: " + building_data.filter(function(d) { return d.Year <= document.getElementById("year").value}).length;
 }
 
