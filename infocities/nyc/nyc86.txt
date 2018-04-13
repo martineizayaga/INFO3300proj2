@@ -1,0 +1,751 @@
+<!doctype html>
+    <html lang="">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+        <meta charset="utf-8">
+        <title>New York City | EMPORIS</title>
+        <meta name="title" content="New York City"/>
+<meta name="author" content="Emporis GmbH"/>
+<meta name="description" content="Emporis is a leading database for building information worldwide. You find information about construction projects, architecture, the building industry and city planning."/>
+<meta name="keywords" content="buildings, building-data, building-information, skyscraper, construction information, architecture, real estate information, property information, high-rises, property statistics, Emporis, real estate reports, property manager, property mangament, building engineer, building engineering, real estate for sale, real estate for rent, free office space, housing development, residential buildings, real estate advertisement, real estate apartment ads, apartment ads, lifts, skyscraper images, building pictures, building photos, skyscrapers, highest building in the world, building industry"/>
+<meta name="robots" content="index,follow" /><link rel="canonical" href="https://www.emporis.com/city/101028/new-york-city-ny-usa/status/existing/86">
+                    <link rel="alternate" hreflang="en" href="https://www.emporis.com/city/101028/new-york-city-ny-usa/status/existing/86">
+                    <link rel="alternate" hreflang="de-DE" href="https://www.emporis.de/city/101028/new-york-city-ny-usa/status/existing/86">
+                    <link rel="alternate" hreflang="fr-FR" href="https://www.emporis.fr/city/101028/new-york-city-ny-usa/status/existing/86">
+                <link rel="shortcut icon" href="/favicon.ico?v=2"/>
+        <link rel="apple-touch-icon" href="/img/icons/emporis-touch-icon.png"/>
+        <link rel="apple-touch-icon-precomposed" href="/img/icons/emporis-touch-icon.png"/>
+        <meta name="theme-color" content="#0667a4">
+        <link rel="icon" sizes="192×192" href="/img/tab-logo.png">
+            <link rel="stylesheet" href="//static.emporis.com/assets-v2.2.26/css/flags.css" media="screen"/>
+
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//static.emporis.com/assets-v2.2.26/bootstrap/css/glyphicons-bootstrap.css">
+        <link rel="stylesheet" href="//static.emporis.com/assets-v2.2.26/bootstrap/css/glyphicons-halflings.css">
+        <link rel="stylesheet" href="//static.emporis.com/assets-v2.2.26/bootstrap/css/glyphicons-filetypes.css">
+        <link rel="stylesheet" href="//static.emporis.com/assets-v2.2.26/bootstrap/css/glyphicons.css">
+        <link href="//static.emporis.com/assets-v2.2.26/bootstrap/css/glyphicons-social.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="//static.emporis.com/assets-v2.2.26/bootstrap/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="//static.emporis.com/assets-v2.2.26/bootstrap/css/bootstrap-theme.min.css">
+
+        <!-- Bootstrap override -->
+        <link rel="stylesheet" href="//static.emporis.com/assets-v2.2.26/css/style.css">
+        <!-- Language override -->
+        <!--colorbox stylesheet (analog to fancybox)-->
+        <link rel="stylesheet" href="//static.emporis.com/assets-v2.2.26/css/colorbox.css">
+
+        <!--  -->
+
+        <!--Scripts needed in header! Since huge tables load time is significant, loading scripts at the body end may cause inconsistency-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            if (typeof jQuery == 'undefined') document.write('<script src="//static.emporis.com/assets-v2.2.26/js/jquery-1.11.1.min.js"><\/script>');
+        </script>
+        <!-- jQuery colorbox plugin (analog to fancybox) -->
+        <script src="//static.emporis.com/assets-v2.2.26/js/colorbox-master/jquery.colorbox.js"></script>
+        <!-- Hoverintent -->
+        <script src="//static.emporis.com/assets-v2.2.26/js/jquery.hoverIntent.min.js"></script>
+        <script src="//static.emporis.com/assets-v2.2.26/bootstrap/js/bootstrap.min.js"></script>
+        <!--[if lt IE 9]>
+        <!-- Own JavaScript for Bootstrap -->
+        <script src="//static.emporis.com/assets-v2.2.26/js/html5shiv.min.js"></script>
+        <![endif]-->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-1705395-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </head>
+    <body class="">
+
+    <div id="cookieNotice">
+        <div class="container">
+            <span class="cookie-notice-close btn btn-gray btn-xs">ok</span>
+            We use cookies on our website to allow you the best possible service. More information can be found <a href="/terms-of-use#5" target="_blank">here</a>.</div>
+    </div>
+<header class="container">
+
+        <div class="pull-left main-logo">
+            <span itemtype="http://schema.org/Corporation" itemscope>
+                        <a href="http://www.emporis.com" title="Home">
+                            <img itemprop="logo" src="//static.emporis.com/assets-v2.2.26/img/logo.png" width="250" height="84" alt="Emporis GmbH">
+                        </a>
+                        <span style="display: none" class="hidden" itemprop="name">Emporis</span>
+                        <span style="display: none" class="hidden" itemprop="description">Emporis is a leading database for building information worldwide. You find information about construction projects, architecture, the building industry and city planning.</span>
+                        <span style="display: none" class="hidden" itemprop="url">http://www.emporis.com</span>
+                    </span>
+                </div>
+
+        <div class="pull-right header-right ">
+            <div id="social-icons" class="clearfix">
+        <a href="/press/press-releases/rss" title="Get Emporis updates via RSS!" class="social-icon" target="_blank">
+    <span class="social social-rss"></span>
+    </a>
+<a href="//www.twitter.com/emporis" title="Follow us on Twitter!" class="social-icon" target="_blank">
+    <span class="social social-twitter"></span>
+    </a>
+<a href="//www.facebook.com/emporis" title="Like us on Facebook!" class="social-icon" target="_blank">
+    <span class="social social-facebook"></span>
+    </a>
+<a href="//plus.google.com/u/0/114315378989635093951" title="Visit our Google+ profile!" class="social-icon" target="_blank">
+    <span class="social social-google-plus"></span>
+    </a>
+</div>
+<div class="">
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+                <form enctype="application/x-www-form-urlencoded" method="post" name="clf" action="/changeLanguage" id="change-language"><input name="after" type="hidden" value="http://www.emporis.com/city/101028/new-york-city-ny-usa/status/existing/86" /><input type="hidden" id="ln" name="ln" value="en" />
+                    <a href="#en" class="select-ln"><img src="//static.emporis.com/assets-v2.2.26/img/flags/medium/GBR.png" width="20" height="15" title='English'/></a>
+                    <a href="#de" class="select-ln"><img src="//static.emporis.com/assets-v2.2.26/img/flags/medium/DEU.png" width="20" height="15" title='German'/></a>
+                    <a href="#fr" class="select-ln"><img src="//static.emporis.com/assets-v2.2.26/img/flags/medium/FRA.png" width="20" height="15" title='French'/></a>
+                <div style="display: none;"><input type="hidden" name="_sourcePage" value="/WEB-INF/jsps/buildings/location/listings/buildings_by_construction_status.jsp" /><input type="hidden" name="__fp" value="" /></div></form></li>
+            <li class="hidden-xs">
+                <a href="/images/shoppingcart"><span class="glyphicon glyphicon-shopping-cart"></span>
+                    <span class="hidden-xs hidden-sm-fr">Cart&nbsp;</span><span>(0 items)</span></a></li>
+        <li class="separator hidden-xs"></li>
+            <li>
+                <a href="/community/login" class="login iframe-colorbox hidden-xs">Login</a></li>
+            <li class="separator hidden-xs"></li>
+            <li>
+                <a href="/community" class="login border-left hidden-xs">Register</a></li>
+        </ul>
+</div>
+</div>
+
+</header>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+                <button type="button" id="open-nav" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul class="navbar-xs">
+                    <li class="separator hidden-xs"></li>
+                        <li>
+                            <a href="/community/login" class="login iframe-colorbox">Login</a></li>
+                        <li class="separator hidden-xs"></li>
+                        <li>
+                            <a href="/community" class="login border-left">Register</a></li>
+                    <li>
+                            <a href="/images/shoppingcart"><span class="glyphicon glyphicon-shopping-cart"></span>
+                                <span class="hidden-xs">Cart&nbsp;</span><span>(0 items)</span></a></li>
+                    </ul>
+            </div>
+            <div id="navbar-collapse" class="collapse navbar-collapse">
+                <ul id="navigation" class="nav navbar-nav navbar-left">
+                    <li class="dropdown active">
+                                    <a href="/buildings"><span>Buildings</span></a><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li >
+    <a href="/buildings" class="">Building Directory</a></li><li >
+    <a href="/buildings/map" class="">World Building Map</a></li><li class="has-submenu">
+    <a href="/statistics" class="">Statistics</a><a href="#" class="sub dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                                            <ul class="sub dropdown-menu" role="menu">
+                                                <li >
+    <a href="/statistics/tallest-buildings" class="">Tallest Buildings</a></li><li >
+    <a href="/statistics/new-high-rise-buildings" class="">New High-Rises</a></li><li >
+    <a href="/statistics/updated_constructions" class="">Updated Constructions</a></li><li >
+    <a href="/statistics/most-expensive" class="">Most Expensive</a></li><li >
+    <a href="/statistics/most-skyscrapers" class="">Most Skyscrapers</a></li></ul>
+                                        </li><li class="has-submenu">
+    <a href="/awards" class="">Emporis Skyscraper Award</a><a href="#" class="sub dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                                                <ul class="sub dropdown-menu" role="menu">
+                                                        <li >
+    <a href="/awards/about" class="">About the Award</a></li><li >
+    <a href="/awards/2016" class="">2016</a></li><li >
+    <a href="/awards/2015" class="">2015</a></li><li >
+    <a href="/awards/2014" class="">2014</a></li><li >
+    <a href="/awards/2013" class="">2013</a></li><li >
+    <a href="/awards/2012" class="">2012</a></li><li >
+    <a href="/awards/2011" class="">2011</a></li><li >
+    <a href="/awards/2010" class="">2010</a></li><li >
+    <a href="/awards/2009" class="">2009</a></li><li >
+    <a href="/awards/2008" class="">2008</a></li><li >
+    <a href="/awards/2007" class="">2007</a></li><li >
+    <a href="/awards/2006" class="">2006</a></li><li >
+    <a href="/awards/2005" class="">2005</a></li><li >
+    <a href="/awards/2004" class="">2004</a></li><li >
+    <a href="/awards/2003" class="">2003</a></li><li >
+    <a href="/awards/2002" class="">2002</a></li><li >
+    <a href="/awards/2001" class="">2001</a></li><li >
+    <a href="/awards/2000" class="">2000</a></li></ul>
+                                            </li><li >
+    <a href="/building/standards" class="">Emporis Standards</a></li><li >
+    <a href="/buildings/create" class="">Add Building</a></li></ul>
+                                </li>
+                            <li class="dropdown ">
+                                    <a href="/images"><span>Images</span></a><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li >
+    <a href="/images" class="">Search Images</a></li><li >
+    <a href="/images/new" class="">Latest Images</a></li><li >
+    <a href="/images/shoppingcart" class="">Cart&nbsp;(0 items)</a></li><li >
+    <a href="/faq#faq-images" class="">Image FAQ</a></li></ul>
+                                </li>
+                            <li class="dropdown ">
+                                    <a href="/companies"><span>Companies</span></a><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li >
+    <a href="/companies/categories" class="">Company Sectors</a></li><li >
+    <a href="/companies/cities/A" class="">Companies by Cities</a></li></ul>
+                                </li>
+                            <li class="dropdown ">
+                                    <a href="/products"><span>Products</span></a><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li class="has-submenu">
+    <a href="/products/emporis-research" class="">Emporis Research</a><a href="#" class="sub dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                                            <ul class="sub dropdown-menu" role="menu">
+                                                <li >
+    <a href="/products/emporis-research" class="">What is Emporis Research?</a></li><li >
+    <a href="/products/emporis-research/packages" class="">Packages & Pricing</a></li></ul>
+                                        </li><li >
+    <a href="/products/image-licensing" class="">Image Licensing</a></li><li >
+    <a href="/products/online-advertising" class="">Online Advertising</a></li><li >
+    <a href="/products/premium-company" class="">Premium Company Listing</a></li></ul>
+                                </li>
+                            <li class="dropdown ">
+                                    <a href="/community"><span>Community</span></a></li>
+                            <li class="dropdown ">
+                                    <a href="/corporate"><span>Corporate</span></a><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li >
+    <a href="/corporate" class="">About us</a></li><li >
+    <a href="/corporate/contact" class="">Contact</a></li><li >
+    <a href="http://www.internetconsumerservices.com/index.php/jobs" class="">Jobs</a></li><li >
+    <a href="/corporate/reference-customers" class="">Reference Customers</a></li></ul>
+                                </li>
+                            </ul>
+
+                    <form enctype="application/x-www-form-urlencoded" role="search" method="get" name="clf" action="/search" class="navbar-form navbar-left" accept-charset="utf-8"><div class="form-group">
+                        <input name="query" placeholder="Search for buildings, cities, …" type="search" class="form-control no-focus" required="required" /></div>
+                    <input name="submit" alt="Search for buildings, cities, …" type="submit" class="btn btn-primary pull-right" /><div class="clearfix"></div>
+                <div style="display: none;"><input type="hidden" name="_sourcePage" value="/WEB-INF/jsps/buildings/location/listings/buildings_by_construction_status.jsp" /><input type="hidden" name="__fp" value="" /></div></form><div id="search" class="navbar-right hidden-xs">
+                    <form enctype="application/x-www-form-urlencoded" role="search" method="get" name="clf" action="/search" accept-charset="utf-8"><input name="query" id="search-input" placeholder="Search for buildings, cities, …" type="search" class="no-focus" required="required" /><input src="//static.emporis.com/assets-v2.2.26/img/icons/search_small.png" name="submit" alt="Search for buildings, cities, …" id="search-submit" type="image" /><div style="display: none;"><input type="hidden" name="_sourcePage" value="/WEB-INF/jsps/buildings/location/listings/buildings_by_construction_status.jsp" /><input type="hidden" name="__fp" value="" /></div></form></div>
+
+            </div>
+            </div>
+</nav>
+<div class="page ">   <div class="wrapper container">
+            <div class="row">
+                <aside id="sidebar" role="navigation" class="hidden-xs col-xs-6 col-sm-3">
+                            <ul class="submenu">
+            <li class="active " id="current">
+    <a href="/buildings" class="">Building Directory</a></li><li >
+    <a href="/buildings/map?action=%2Fcity%2F101028%2Fnew-york-city-ny-usa%2Fstatus%2Fexisting%2F86" class="">World Building Map</a></li><li >
+    <a href="/statistics" class="">Statistics</a></li><li >
+    <a href="/awards" class="">Emporis Skyscraper Award</a></li><li >
+    <a href="/building/standards" class="">Emporis Standards</a></li><li >
+    <a href="/buildings/create" class="iframe-colorbox login">Add Building</a></li></ul></aside>
+                <div class="col-xs-12 col-sm-9 ">
+                    <section class="box">
+            <div class="position_bar">
+                <span style="padding-right: 20px">Your location:</span>
+                <ol class="breadcrumb">
+                    <li><a rel="nofollow" href="/buildings">World</a></li>
+                    <li><a rel="nofollow" id="" href="/continent/100007/north-america" class=""><span itemprop="name">North America</span></a></li>
+                    <li><a rel="nofollow" href="/country/100185/usa" class="header-link "><span itemprop="name">U.S.A.</span></a></li>
+                    <li><a rel="nofollow" href="/state/100622/new-york-usa"><span itemprop="name">New York</span></a></li>
+                    <li><a rel="nofollow" href="/city/101028/new-york-city-ny-usa" class=""><span itemprop="name">New York City</span></a></li>
+                    <li><span class="position">existing</span></li>
+                        </ol>
+            </div>
+
+            <h1 class="box-header">Buildings in New York City (existing)</h1>
+            <div class="box-white table-responsive">
+                <table class="table table-striped table-condensed no-margin ">
+    <thead>
+    <tr>
+        <th class="text-right">#</th>
+        <th class="text-left">Building</th>
+                <th class="text-left text-nowrap">Images</th>
+                <th class="text-right text-nowrap">Height</th>
+                <th class="text-right text-nowrap">Floors</th>
+                <th class="text-left text-nowrap">Building type</th>
+                <th class="text-right text-nowrap">Year</th>
+                <th class="text-left text-nowrap">Status</th>
+                </tr>
+    </thead>
+    <tbody>
+    <tr>
+            <td class="text-right">1,701</td>
+            <td><a href="/buildings/397140/the-cornell-club-new-york-new-york-city-ny-usa" class="header-link " target="">The Cornell Club - New York</a></td>
+            <td></td>
+                    <td class="text-right text-nowrap">
+                            187 ft
+    </td>
+                    <td class="text-right text-nowrap">14</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1920</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,702</td>
+            <td><a href="/buildings/149278/butler-houses-iv-new-york-city-ny-usa" class="header-link " target="">Butler Houses IV</a></td>
+            <td></td>
+                    <td class="text-right text-nowrap">
+                            187 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1964</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,703</td>
+            <td><a href="/buildings/149277/butler-houses-iii-new-york-city-ny-usa" class="header-link " target="">Butler Houses III</a></td>
+            <td></td>
+                    <td class="text-right text-nowrap">
+                            187 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1964</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,704</td>
+            <td><a href="/buildings/149276/butler-houses-ii-new-york-city-ny-usa" class="header-link " target="">Butler Houses II</a></td>
+            <td></td>
+                    <td class="text-right text-nowrap">
+                            187 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1964</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,705</td>
+            <td><a href="/buildings/164615/seward-park-cooperative-ii-new-york-city-ny-usa" class="header-link " target="">Seward Park Cooperative II</a></td>
+            <td>3</td>
+                    <td class="text-right text-nowrap">
+                            187 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1960</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,706</td>
+            <td><a href="/buildings/177726/four-points-by-sheraton-manhattan-chelsea-new-york-city-ny-usa" class="header-link " target="">Four Points by Sheraton Manhattan Chelsea</a></td>
+            <td>2</td>
+                    <td class="text-right text-nowrap">
+                            187 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">2004</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,707</td>
+            <td><a href="/buildings/147247/bruckner-towers-ii-new-york-city-ny-usa" class="header-link " target="">Bruckner Towers II</a></td>
+            <td></td>
+                    <td class="text-right text-nowrap">
+                            187 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1963</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,708</td>
+            <td><a href="/buildings/134613/165-duane-street-new-york-city-ny-usa" class="header-link " target="">165 Duane Street</a></td>
+            <td>1</td>
+                    <td class="text-right text-nowrap">
+                            187 ft
+    </td>
+                    <td class="text-right text-nowrap">10</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1880</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,709</td>
+            <td><a href="/buildings/164614/seward-park-cooperative-i-new-york-city-ny-usa" class="header-link " target="">Seward Park Cooperative I</a></td>
+            <td>4</td>
+                    <td class="text-right text-nowrap">
+                            186 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1960</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,710</td>
+            <td><a href="/buildings/188436/99-hillside-avenue-new-york-city-ny-usa" class="header-link " target="">99 Hillside Avenue</a></td>
+            <td></td>
+                    <td class="text-right text-nowrap">
+                            186 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1960</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,711</td>
+            <td><a href="/buildings/150500/john-adams-houses-v-new-york-city-ny-usa" class="header-link " target="">John Adams Houses V</a></td>
+            <td></td>
+                    <td class="text-right text-nowrap">
+                            186 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1964</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,712</td>
+            <td><a href="/buildings/203642/200-east-36th-street-new-york-city-ny-usa" class="header-link " target="">200 East 36th Street</a></td>
+            <td>3</td>
+                    <td class="text-right text-nowrap">
+                            186 ft
+    </td>
+                    <td class="text-right text-nowrap">19</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1956</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,713</td>
+            <td><a href="/buildings/114516/the-saint-mark-new-york-city-ny-usa" class="header-link " target="">The Saint Mark</a></td>
+            <td>4</td>
+                    <td class="text-right text-nowrap">
+                            186 ft
+    </td>
+                    <td class="text-right text-nowrap">19</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1964</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,714</td>
+            <td><a href="/buildings/134793/hudson-view-east-new-york-city-ny-usa" class="header-link " target="">Hudson View East</a></td>
+            <td>7</td>
+                    <td class="text-right text-nowrap">
+                            186 ft
+    </td>
+                    <td class="text-right text-nowrap">18</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1986</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,715</td>
+            <td><a href="/buildings/192494/202-west-40th-street-new-york-city-ny-usa" class="header-link " target="">202 West 40th Street</a></td>
+            <td>2</td>
+                    <td class="text-right text-nowrap">
+                            186 ft
+    </td>
+                    <td class="text-right text-nowrap">15</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1928</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,716</td>
+            <td><a href="/buildings/1306494/145-clinton-street-new-york-city-ny-usa" class="header-link " target="">145 Clinton Street</a></td>
+            <td>3</td>
+                    <td class="text-right text-nowrap">
+                            186 ft
+    </td>
+                    <td class="text-right text-nowrap">15</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">2017</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,717</td>
+            <td><a href="/buildings/157524/bruckner-towers-iii-new-york-city-ny-usa" class="header-link " target="">Bruckner Towers III</a></td>
+            <td></td>
+                    <td class="text-right text-nowrap">
+                            185 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1965</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,718</td>
+            <td><a href="/buildings/233128/4-west-21st-street-new-york-city-ny-usa" class="header-link " target="">4 West 21st Street</a></td>
+            <td>1</td>
+                    <td class="text-right text-nowrap">
+                            185 ft
+    </td>
+                    <td class="text-right text-nowrap">17</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">2006</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,719</td>
+            <td><a href="/buildings/149280/butler-houses-vi-new-york-city-ny-usa" class="header-link " target="">Butler Houses VI</a></td>
+            <td></td>
+                    <td class="text-right text-nowrap">
+                            185 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1964</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        <tr>
+            <td class="text-right">1,720</td>
+            <td><a href="/buildings/149279/butler-houses-v-new-york-city-ny-usa" class="header-link " target="">Butler Houses V</a></td>
+            <td></td>
+                    <td class="text-right text-nowrap">
+                            185 ft
+    </td>
+                    <td class="text-right text-nowrap">21</td>
+                    <td class="text-left text-nowrap">high-rise building</td>
+                    <td class="text-right text-nowrap">1964</td>
+                    <td class="text-right text-nowrap"><div class="building-status" title="existing <br>[completed]" data-placement="top" rel="tooltip">
+    <div class="status-green"></div>
+</div></td>
+                    </tr>
+        </tbody>
+</table>
+<div class="clearfix text-center" id="legend-control">
+    <div class="legend">
+        <div class="building-status" title="existing">
+            <div class="status-green"></div>
+        </div>
+        existing</div>
+    <div class="legend">
+        <div class="building-status" title="under construction">
+            <div class="status-green-blue"></div>
+        </div>
+        under construction</div>
+    <div class="legend">
+        <div class="building-status" title="planned">
+            <div class="status-blue"></div>
+        </div>
+        planned</div>
+    <div class="legend">
+        <div class="building-status" title="unbuilt">
+            <div class="status-yellow"></div>
+        </div>
+        unbuilt</div>
+    <div class="legend">
+        <div class="building-status" title="demolished">
+            <div class="status-red"></div>
+        </div>
+        demolished</div>
+</div>
+<div class="clear"></div><div class="text-center">
+        <ul class="pagination">
+                <li id="pager-first"><a href="/city/101028/new-york-city-ny-usa/status/existing/1">
+                        <span class="hidden-xs">First</span>
+                        <span class="visible-xs"><<</span>
+                    </a></li>
+                    <li id="pager-prev"><a href="/city/101028/new-york-city-ny-usa/status/existing/85">
+                        <span class="hidden-xs">Prev</span>
+                        <span class="visible-xs"><</span>
+                    </a></li>
+                    <li><a href="/city/101028/new-york-city-ny-usa/status/existing/85">85</a></li>
+                <li class="active"><span>86</span></li>
+            <li class="hidden-xs"><a href="/city/101028/new-york-city-ny-usa/status/existing/87">87</a></li>
+                <li class="hidden-xs"><a href="/city/101028/new-york-city-ny-usa/status/existing/88">88</a></li>
+                <li class="hidden-xs"><a href="/city/101028/new-york-city-ny-usa/status/existing/89">89</a></li>
+                <li class="hidden-xs"><a href="/city/101028/new-york-city-ny-usa/status/existing/90">90</a></li>
+                <li class="hidden-xs"><a href="/city/101028/new-york-city-ny-usa/status/existing/100">100</a></li>
+                <li class="hidden-xs"><a href="/city/101028/new-york-city-ny-usa/status/existing/110">110</a></li>
+                <li class="hidden-xs"><a href="/city/101028/new-york-city-ny-usa/status/existing/200">200</a></li>
+                <li class="hidden-xs"><a href="/city/101028/new-york-city-ny-usa/status/existing/300">300</a></li>
+                <li class="hidden-xs"><a href="/city/101028/new-york-city-ny-usa/status/existing/400">400</a></li>
+                <li id="pager-next"><a href="/city/101028/new-york-city-ny-usa/status/existing/87">
+                    <span class="hidden-xs">Next</span>
+                    <span class="visible-xs">></span>
+                </a></li>
+                <li id="pager-last"><a href="/city/101028/new-york-city-ny-usa/status/existing/36378">
+                    <span class="hidden-xs">Last</span>
+                    <span class="visible-xs">>></span>
+                </a></li>
+            </ul>
+    </div>
+    <script type="text/javascript">
+        /*jQuery(document).ready(function() {
+            jQuery('.pagination').each(function() {
+                var $listItems = $(this).children('li');
+                if ($listItems.length > 10) $listItems.slice($listItems.length / 2 - 3, $listItems.length / 2 + 3).remove();
+            });
+        });*/
+    </script>
+</div>
+        </section>
+    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+            <div>
+                    <div class="container">
+    <div id="known">
+        <div class="row">
+            <span class="col-xs-12 col-sm-2 text-center">Featured in:</span>
+            <ul class="col-xs-12 col-sm-10 clearfix text-center">
+                <li>
+                    <a href="/press">
+                        <div id="logo-yahoo" class="logo">
+                            <span>Yahoo! Finance</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/press">
+                        <div id="logo-business" class="logo">
+                            <span>Business Journal</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/press">
+                        <div id="logo-reuters" class="logo">
+                            <span>Reuters</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/press">
+                        <div id="logo-zdf" class="logo">
+                            <span>ZDF</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/press">
+                        <div id="logo-times" class="logo">
+                            <span>The Times</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</div>
+</div>
+            <div id="footer">
+                <div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-xs-6">
+            <a href="/corporate" class="heading">Corporate</a><ul class="sub">
+                <li>
+                    <a href="/corporate">About us</a></li>
+                <li>
+                    <a href="/corporate/contact">Contact</a></li>
+                <li>
+                    <a href="http://www.internetconsumerservices.com/index.php/jobs" target="_blank">Jobs</a>
+                </li>
+                <li>
+                    <a href="/corporate/reference-customers">Reference Customers</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <a href="/press" class="heading">Press</a><ul class="sub">
+                <li>
+                    <a href="/press">Emporis in the Press</a></li>
+                <li>
+                    <a href="/press/press-releases">Press Releases</a></li>
+                <li>
+                    <a href="/press/media-assistance">Media Assistance</a></li>
+                <li>
+                    <a href="/press/downloads">Downloads</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 col-xs-6"><a href="" class="heading">Website</a>
+            <ul class="sub">
+                <li><a href="/faq">FAQ</a></li>
+                <li>
+                    <a rel="nofollow" href="/general-terms-and-conditions">General Terms and Conditions</a></li>
+                <li>
+                    <a rel="nofollow" href="/terms-of-use">Terms of Use</a></li>
+                <li>
+                    <a href="/imprint">Imprint</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <a href="/community" class="heading">Community</a><ul class="sub">
+                        <li>
+                                    <a href="/community/login" class="iframe-colorbox login">Login</a></li>
+                                <li>
+                                    <a href="/community" class="login border-left">Register</a></li>
+                            </ul>
+                </div>
+    </div>
+    <div class="clear"></div>
+</div></div>
+            <div class="bhsm">
+    <div class="wrapper">
+        <a href="/buildings/index/1-200">1-200</a><a href="/buildings/index/201-1000">201-1000</a><a href="/buildings/index/1001-2000">1001-2000</a><a href="/buildings/index/2001-3000">2001-3000</a><a href="/buildings/index/3001-4000">3001-4000</a><a href="/buildings/index/4001-5000">4001-5000</a><a href="/buildings/index/5001-7000">5001-7000</a><a href="/buildings/index/7001-10000">7001-10000</a><a href="/buildings/index/10001-20000">10001-20000</a><a href="/buildings/index/20001-40000">20001-40000</a><a href="/buildings/index/40001-100000">40001-100000</a><a href="/buildings/index/100001-200000">100001-200000</a><a href="/buildings/index/200001-400000">200001-400000</a></div>
+</div><div id="copyright">
+                <div class="container">
+                    COPYRIGHT &copy; 2000-2018 EMPORIS GMBH. ALL RIGHTS RESERVED <!-- software version: 2.2.26 -->
+                </div>
+            </div>
+        </footer>
+
+    <!--[if lt IE 9]>
+    <script src="//static.emporis.com/assets-v2.2.26/js/respond.min.js"></script>
+    <![endif]-->
+
+
+        <script src="//static.emporis.com/assets-v2.2.26/js/emporis-bootstrap.js"></script>
+    <!-- v2.2.26 -->
+        </body>
+    </html>
