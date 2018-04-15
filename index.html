@@ -139,20 +139,27 @@ function determineBucket(height){
 
 // get rid of letters in number fields
 function mutateRow(row) {
-  //console.log(row);
   row["Year"] = Number(row["Year"]);
   row["Height"] = row["Height"].replace(/\D/g, '');
   return row;
 }
 
+// convert year to a number
 function mutatePop(row) {
   row["Year"] = Number(row["Year"]);
   return row;
 }
 
-function callback(error, data) {
-  svg.selectAll("rect").remove();
-  document.getElementById("leftPop").innerHTML = "Population: "
+function callback(data, left) {
+  if(left) {
+    svg.selectAll("rect").remove();
+    document.getElementById("leftPop").innerHTML = "Population: "
+    height_added1 = [];
+  }else {
+    svg2.selectAll("rect").remove();
+    document.getElementById("rightPop").innerHTML = "Population: "
+    height_added2 = [];
+  }
 
   data = data.filter(function(d) { return d.Year > 0;});
 
@@ -207,89 +214,30 @@ function callback(error, data) {
 	for (var y = 0; y < 5; y++){
 		shuffleArray(p[y]);
 	}
-
+  if(left) {
 	// set the global arrays to their correct values
-	for (var y = 0; y < 5; y++){
-		height_added1.push(sums[y] / buckets[y]);
-	}
-	heights_array = heights;
-	priority_order = p; 
-	// sort the data by year and store it in the global array
-	building_data = data.sort(function(a, b) { 
+    for (var y = 0; y < 5; y++){
+		  height_added1.push(sums[y] / buckets[y]);
+    }
+    heights_array = heights;
+    priority_order = p;
+    // sort the data by year and store it in the global array
+    building_data = data.sort(function(a, b) { 
     return a.Year - b.Year;
-	});
+    });
+  }else {
+    for (var y = 0; y < 5; y++){
+      height_added2.push(sums[y] / buckets[y]);
+    }
+    heights_array2 = heights;
+    priority_order2 = p;
+    building_data2 = data.sort(function(a, b) { 
+    return a.Year - b.Year;
+    });
+  } 
 }  
 
-function callback2(error, data) {
-  svg2.selectAll("rect").remove();
-  document.getElementById("rightPop").innerHTML = "Population: "
-
-  data = data.filter(function(d) { return d.Year > 0})
-
-  var buckets = [0,0,0,0,0]; // to determine number of buildings that fall into each height bracket
-  var buckets2 = [0,0,0,0,0]; // used to generate the heights_added global array
-
-  // iterate through data and determine the number of buildings in each height bracket
-  for (var x = 0; x < data.length; x++){
-      buckets[determineBucket(data[x].Height)] += 1
-  }
-
-  // Determine the number of buildings to be constructed in the svg for each height bracket
-  // MAY HAVE TO INCLUDE SOMETHING HERE TO ADJUST NUMBER OF BUILDINGS IF THEY DON'T ADD TO NO_BUILDINGS
-  for (var y = 0; y < 5; y++){
-    buckets2[y] = Math.round(buckets[y] * NO_BUILDINGS / data.length);
-  }
-
-  var heights = [] //used to generate the heights_array global array
-
-  // this section of code assigns each position in the svg to a specific height bracket, 
-  // determines the eventual height of the building in that position
-  // and stores this value in heights array
-  data = data.sort(function(a, b) { 
-    return b.Height - a.Height;
-  });
-
-  for (var y = 0; y < 5; y++){
-    sum_previous = 0;
-    for (var z = 0; z < y; z++){
-      sum_previous += buckets[z];
-    }
-    marker = sum_previous;
-    for (var j = 0; j < buckets2[y]; j++){
-      heights.push(Number(data[marker].Height));
-      marker += Math.floor(buckets[y]/buckets2[y]);
-    }
-  }
-
-  // randomize the locations of the buildings in the svg
-  shuffleArray(heights);
-
-  var p = [[],[],[],[],[]]; // used to generate the priority_order global array
-  var sums = [0,0,0,0,0]; // an array keeping track of the sums of the heights of the buildings for each height bracket
-
-  // add the svg building positions to the appropriate height bracket in p
-  for (var z = 0; z < NO_BUILDINGS; z++){
-    var b = determineBucket(heights[z]);
-    p[b].push(z);
-    sums[b] += heights[z];
-  }
-  // randomize the order that the buildings will be built
-  for (var y = 0; y < 5; y++){
-    shuffleArray(p[y]);
-  }
-
-  // set the global arrays to their correct values
-  for (var y = 0; y < 5; y++){
-    height_added2.push(sums[y] / buckets[y]);
-  }
-  heights_array2 = heights;
-  priority_order2 = p; 
-  // sort the data by year and store it in the global array
-  building_data2 = data.sort(function(a, b) { 
-    return a.Year - b.Year;
-  });
-}  
-
+// create object that tracks population of a city for a given year
 function expandPopData(data) {
   var expandedPop = {};
   var i = 1880;
@@ -323,15 +271,20 @@ function expandPopData(data) {
   return expandedPop;
 }
 
+// initializes data structures for a selected city
 function selectData(city, left) {
   if (left) {
-    d3.csv("" + city.toLowerCase() +".csv", mutateRow, callback);
+    d3.csv("" + city.toLowerCase() +".csv", mutateRow, function(error, data) {
+      callback(data, left);
+    });
     d3.csv("" + city.toLowerCase() + "Population.csv", mutatePop, function(error, data) {
         population_data1 = expandPopData(data);
       });
     document.getElementById("cityHeadingLeft").innerText = document.getElementById("dropdownLeft").value;
   }else {
-    d3.csv("" + city.toLowerCase() +".csv", mutateRow, callback2);
+    d3.csv("" + city.toLowerCase() +".csv", mutateRow, function(error, data) {
+      callback(data, left);
+    });
     d3.csv("" + city.toLowerCase() + "Population.csv", mutatePop, function(error, data) {
         population_data2 = expandPopData(data);
       });
@@ -507,7 +460,7 @@ function show(){
   .attr("id", "yearText");
 	current_heights1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-    svg2.selectAll("*").remove();
+  svg2.selectAll("*").remove();
   svg2.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
   .call(d3.axisLeft(yScale));
   svg2.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("Height");
