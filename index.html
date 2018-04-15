@@ -14,18 +14,18 @@ svg {padding: 10px;}
     <h1 id="cityHeadingLeft">Seattle</h1>
     <svg width="550", height="300", id="leftSvg"></svg>
     <p>Left selection</p>
-    <select id = "dropdownLeft" onchange = "selectData(value, callback)" selected = "Seattle">
+    <select id = "dropdownLeft" onchange = "selectData(value, callback)">
       <option value = "Chicago">Chicago</option>
       <option value = "Phoenix">Phoenix</option>
-      <option value = "Seattle">Seattle</option>
+      <option value = "Seattle" selected>Seattle</option>
     </select>
   </div>
   <div style = "float: right; width:50%">
     <h1 id="cityHeadingRight">Chicago</h1>
     <svg width="550", height="300", id="rightSvg"></svg>
     <p>Right selection</p>
-    <select id = "dropdownRight" onchange = "selectData(value, callback2)" selected = "Chicago">
-      <option value = "Chicago">Chicago</option>
+    <select id = "dropdownRight" onchange = "selectData(value, callback2)">
+      <option value = "Chicago" selected>Chicago</option>
       <option value = "Phoenix">Phoenix</option>
       <option value = "Seattle">Seattle</option>
     </select>
@@ -203,6 +203,8 @@ function callback(error, data) {
 }  
 
 function callback2(error, data) {
+  svg2.selectAll("rect").remove();
+
   data = data.filter(function(d) { return d.Year > 0})
 
   var buckets = [0,0,0,0,0]; // to determine number of buildings that fall into each height bracket
@@ -281,7 +283,7 @@ function selectData(city, callbackFunc) {
 function fallBuildings(display, year, heights, priorities, data, current_heights, height_added){
   var svg = display;
 	// only use the buildings built in the inputted year
-	dataset = data.filter(function(d) { return d.Year == year})
+	var dataset = data.filter(function(d) { return d.Year == year})
 
 	if (dataset == false){
 		return;
@@ -360,7 +362,7 @@ function fallBuildings(display, year, heights, priorities, data, current_heights
 function drawBuildings(display, year, heights, priorities, data, current_heights, height_added){
   var svg = display;
   // only use the buildings built before the inputted year
-	dataset = data.filter(function(d) { return d.Year <= year})
+	var dataset = data.filter(function(d) { return d.Year <= year})
 
 	// iterate through the data
 	for (var x = 0; x < dataset.length; x++){
