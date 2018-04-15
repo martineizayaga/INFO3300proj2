@@ -10,21 +10,24 @@ svg {padding: 10px;}
 </head>
 <body>
 <div style = "width: 100%">
+  <h1>Comparison of City Skylines</h3>
   <div style = "float: left; width:50%">
-    <h1 id="cityHeadingLeft">Seattle</h1>
+    <h2 id="cityHeadingLeft">Seattle</h1>
     <svg width="550", height="300", id="leftSvg"></svg>
+    <p id = "leftPop">Population: </p>
     <p>Left selection</p>
-    <select id = "dropdownLeft" onchange = "selectData(value, callback)">
+    <select id = "dropdownLeft" onchange = "selectData(value, true)">
       <option value = "Chicago">Chicago</option>
       <option value = "Phoenix">Phoenix</option>
       <option value = "Seattle" selected>Seattle</option>
     </select>
   </div>
   <div style = "float: right; width:50%">
-    <h1 id="cityHeadingRight">Chicago</h1>
+    <h2 id="cityHeadingRight">Chicago</h1>
     <svg width="550", height="300", id="rightSvg"></svg>
+    <p id = "rightPop">Population: </p>
     <p>Right selection</p>
-    <select id = "dropdownRight" onchange = "selectData(value, callback2)">
+    <select id = "dropdownRight" onchange = "selectData(value, false)">
       <option value = "Chicago" selected>Chicago</option>
       <option value = "Phoenix">Phoenix</option>
       <option value = "Seattle">Seattle</option>
@@ -53,6 +56,9 @@ var width = 500;
 var NO_BUILDINGS = 40; // number of buildings in the final skyline
 var current_heights1 = []; // array (length 40) to keep track of the current heights of the buildings in the svg during animation
 var current_heights2 = [];
+
+var population_data1 = [];
+var population_data2 = [];
 
 // Create a plot
 var svg = d3.select("#leftSvg");
@@ -93,6 +99,9 @@ svg2.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2
   .style("dominant-baseline", "central")
   .attr("id", "yearText2");
 
+selectData("seattle", true);
+selectData("chicago", false);
+
  /**
  * Randomize array element order in-place.
  * Function taken from: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -128,15 +137,22 @@ function determineBucket(height){
 
 // get rid of letters in number fields
 function mutateRow(row) {
-  row["Year"] = Number(row["Year"])
+  //console.log(row);
+  row["Year"] = Number(row["Year"]);
   row["Height"] = row["Height"].replace(/\D/g, '');
+  return row;
+}
+
+function mutatePop(row) {
+  row["Year"] = Number(row["Year"]);
   return row;
 }
 
 function callback(error, data) {
   svg.selectAll("rect").remove();
+  document.getElementById("leftPop").innerHTML = "Population: "
 
-  data = data.filter(function(d) { return d.Year > 0})
+  data = data.filter(function(d) { return d.Year > 0;});
 
   var buckets = [0,0,0,0,0]; // to determine number of buildings that fall into each height bracket
   var buckets2 = [0,0,0,0,0]; // used to generate the heights_added global array
@@ -204,6 +220,7 @@ function callback(error, data) {
 
 function callback2(error, data) {
   svg2.selectAll("rect").remove();
+  document.getElementById("rightPop").innerHTML = "Population: "
 
   data = data.filter(function(d) { return d.Year > 0})
 
@@ -271,13 +288,50 @@ function callback2(error, data) {
   });
 }  
 
-d3.csv("seattle.csv", mutateRow, callback);
-d3.csv("chicago.csv", mutateRow, callback2);
+function expandPopData(data) {
+  var expandedPop = {};
+  var i = 1880;
+  var j = data.length-1;
+  var prevPop = 0;
+  while(i < 2019) {
+    var key = "" + i;
+    if(typeof(data[j]) === "undefined") {
+      expandedPop[i] = data[0].Population;
+    }else if(i === data[j].Year) {
+      prevPop = data[j].Population;
+      expandedPop[i] = data[j].Population;
+      j--;
+    }else if(i > data[j].Year) {
+      if(j == data.length-1) {
+        while (i > data[j].Year) {
+          j--;
+        }
+        prevPop = data[j].Population;
+        j--;
+      }
+      expandedPop[i] = prevPop;
+    }else{
+      expandedPop[i] = prevPop;
+    }
+    i++;
+  }
+  return expandedPop;
+}
 
-function selectData(city, callbackFunc) {
-  d3.csv("" + city.toLowerCase() +".csv", mutateRow, callbackFunc);
-  document.getElementById("cityHeadingLeft").innerText = document.getElementById("dropdownLeft").value;
-  document.getElementById("cityHeadingRight").innerText = document.getElementById("dropdownRight").value;
+function selectData(city, left) {
+  if (left) {
+    d3.csv("" + city.toLowerCase() +".csv", mutateRow, callback);
+    d3.csv("" + city.toLowerCase() + "Population.csv", mutatePop, function(error, data) {
+        population_data1 = expandPopData(data);
+      });
+    document.getElementById("cityHeadingLeft").innerText = document.getElementById("dropdownLeft").value;
+  }else {
+    d3.csv("" + city.toLowerCase() +".csv", mutateRow, callback2);
+    d3.csv("" + city.toLowerCase() + "Population.csv", mutatePop, function(error, data) {
+        population_data2 = expandPopData(data);
+      });
+    document.getElementById("cityHeadingRight").innerText = document.getElementById("dropdownRight").value;
+  }
 }
 
 function fallBuildings(display, year, heights, priorities, data, current_heights, height_added){
@@ -422,6 +476,8 @@ function animate() {           //  create a loop function
       document.getElementById("year").value = i;
       d3.select("#yearText").text(""+i);
       d3.select("#yearText2").text(""+i);
+      document.getElementById("leftPop").innerHTML = "Population: " +population_data1["" + i];
+      document.getElementById("rightPop").innerHTML = "Population: " + population_data2["" + i];
       //document.getElementById("buildings").innerHTML = 
   //"# of High Rises: " + building_data.filter(function(d) { return d.Year <= i}).length;
       i++;                     //  increment the counter
@@ -459,6 +515,10 @@ function show(){
   .style("dominant-baseline", "central")
   .attr("id", "yearText2");
   current_heights2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+  document.getElementById("leftPop").innerHTML += population_data1["1880"];
+  document.getElementById("rightPop").innerHTML += population_data2["1880"];
+
 	animate();
 }
 
@@ -493,6 +553,9 @@ function slide(){
   .style("dominant-baseline", "central")
   .attr("id", "yearText2");
   drawBuildings(svg2, document.getElementById("year").value, heights_array2, priority_order2, building_data2, current_heights2, height_added2);
+
+  document.getElementById("leftPop").innerHTML = "Population: " + population_data1["" + document.getElementById("year").value];
+  document.getElementById("rightPop").innerHTML = "Population: " + population_data2["" + document.getElementById("year").value];
 }
 
 	
