@@ -4,7 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <style>
-body { font-family: Segoe UI; }
+body { font-family: Segoe UI; background: linear-gradient(to bottom, #2e76a5, #e8fffd);}
 svg {padding: 10px;}
 </style>
 </head>
@@ -60,6 +60,8 @@ var current_heights2 = [];
 var population_data1 = [];
 var population_data2 = [];
 
+var year_color = "#d3e0ea";
+
 // Create a plot
 var svg = d3.select("#leftSvg");
 var svg2 = d3.select("#rightSvg");
@@ -80,7 +82,7 @@ svg.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("He
 
 svg.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2*padding+")").text("1880")
   .style("font-size", "150px")
-  .style("fill", "#bcbcbc")
+  .style("fill", year_color)
   .style("font-weight", 900)
   .style("text-anchor", "middle")
   .style("dominant-baseline", "central")
@@ -93,7 +95,7 @@ svg2.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("H
 
 svg2.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2*padding+")").text("1880")
   .style("font-size", "150px")
-  .style("fill", "#bcbcbc")
+  .style("fill", year_color)
   .style("font-weight", 900)
   .style("text-anchor", "middle")
   .style("dominant-baseline", "central")
@@ -310,7 +312,10 @@ function expandPopData(data) {
         j--;
       }
       expandedPop[i] = prevPop;
-    }else{
+    }else if (i < data[data.length-1].Year) {
+      expandedPop[i] = "NA";
+    }
+    else{
       expandedPop[i] = prevPop;
     }
     i++;
@@ -365,7 +370,7 @@ function fallBuildings(display, year, heights, priorities, data, current_heights
     	.attr("y", -heightScale(current_heights[num]))
     	.attr("width", width / NO_BUILDINGS)
     	.attr("height", heightScale(height_added[bucket]))
-    	.attr("fill", "white");  
+    	.attr("fill", "transparent");
 
     	bar.transition().duration(500)
   		.attr("y", height - heightScale(current_heights[num]) + padding/2)
@@ -385,7 +390,7 @@ function fallBuildings(display, year, heights, priorities, data, current_heights
     	.attr("y", -heightScale(heights[num]))
     	.attr("width", width / NO_BUILDINGS)
     	.attr("height", heightScale(heights[num] - current_heights[num]))
-    	.attr("fill", "white");
+    	.attr("fill", "transparent");
 
     	bar2.transition().duration(500)
   		.attr("y", height - heightScale(current_heights[num]) + padding/2)
@@ -402,7 +407,7 @@ function fallBuildings(display, year, heights, priorities, data, current_heights
     	.attr("y", -heightScale(current_heights[num2]))
     	.attr("width", width / NO_BUILDINGS)
     	.attr("height", heightScale(height_leftover))
-    	.attr("fill", "white"); 
+    	.attr("fill", "transparent"); 
 
     	bar3.transition().duration(500)
   		.attr("y", height - heightScale(current_heights[num2]) + padding/2)
@@ -495,7 +500,7 @@ function show(){
 	i = 1904;    
   svg.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+i)
   .style("font-size", "150px")
-  .style("fill", "#bcbcbc")
+  .style("fill", year_color)
   .style("font-weight", 900)
   .style("text-anchor", "middle")
   .style("dominant-baseline", "central")
@@ -509,7 +514,7 @@ function show(){
   i = 1904;    
   svg2.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+i)
   .style("font-size", "150px")
-  .style("fill", "#bcbcbc")
+  .style("fill", year_color)
   .style("font-weight", 900)
   .style("text-anchor", "middle")
   .style("dominant-baseline", "central")
@@ -531,7 +536,7 @@ function slide(){
   //document.getElementById("date").innerHTML = document.getElementById("year").value;
   svg.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+document.getElementById("year").value)
   .style("font-size", "150px")
-  .style("fill", "#bcbcbc")
+  .style("fill", year_color)
   .style("font-weight", 900)
   .style("text-anchor", "middle")
   .style("dominant-baseline", "central")
@@ -547,7 +552,7 @@ function slide(){
   //document.getElementById("date").innerHTML = document.getElementById("year").value;
   svg2.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+document.getElementById("year").value)
   .style("font-size", "150px")
-  .style("fill", "#bcbcbc")
+  .style("fill", year_color)
   .style("font-weight", 900)
   .style("text-anchor", "middle")
   .style("dominant-baseline", "central")
