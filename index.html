@@ -131,8 +131,8 @@ svg2.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2
   .style("dominant-baseline", "central")
   .attr("id", "yearText2");
 
-selectData("seattle", true);
-selectData("chicago", false);
+selectData("Seattle", true);
+selectData("Chicago", false);
 
 // get rid of letters in number fields
 function mutateRow(row) {
@@ -153,9 +153,9 @@ function callback(data, left, city) {
   var no_buildings = NO_BUILDINGS;
 
   lands = []
-  if (city == "seattle"){
+  if (city == "Seattle"){
     lands = [17, 18];
-  } else if (city == "chicago") {
+  } else if (city == "Chicago") {
     lands = [11, 12];
   }
   if (left){
@@ -249,19 +249,21 @@ function expandPopData(data) {
 function selectData(city, left) {
   if (left) {
     d3.csv("cityCSVs/" + city.toLowerCase().replace(/\s/g, '') +".csv", mutateRow, function(error, data) {
-      callback(data, left);
+      callback(data, left, city);
     });
     d3.csv("populationCSVs/" + city.toLowerCase().replace(/\s/g, '') + "Population.csv", mutatePop, function(error, data) {
         population_data1 = expandPopData(data);
       });
+    city1 = city;
     document.getElementById("cityHeadingLeft").innerText = document.getElementById("dropdownLeft").value;
   }else {
     d3.csv("cityCSVs/" + city.toLowerCase().replace(/\s/g, '') +".csv", mutateRow, function(error, data) {
-      callback(data, left);
+      callback(data, left, city);
     });
     d3.csv("populationCSVs/" + city.toLowerCase().replace(/\s/g, '') + "Population.csv", mutatePop, function(error, data) {
         population_data2 = expandPopData(data);
       });
+    city2 = city;
     document.getElementById("cityHeadingRight").innerText = document.getElementById("dropdownRight").value;
   }
 }
@@ -387,7 +389,7 @@ function animate() {           //  create a loop function
       if (i < 2019) {            //  if the counter < 10, call the loop function
          animate();             //  ..  again which will trigger another 
       }                        //  ..  setTimeout()
-   }, 100)
+   }, 200)
 }
 
 function show(){
