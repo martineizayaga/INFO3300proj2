@@ -157,7 +157,10 @@ function callback(data, left, city) {
     lands = [17, 18];
   } else if (city == "Chicago") {
     lands = [11, 12];
+  } else if (city == "New York City") {
+    lands = [20,21,23,24,36,37]
   }
+
   if (left){
       landmarks1 = lands;
   } else {
@@ -206,9 +209,9 @@ function callback(data, left, city) {
     });
   } 
 
-  /*if (document.getElementById("year").value != 1880){
+  if (document.getElementById("year").value != 1880){
     drawBuildings(left ? svg: svg2,document.getElementById("year").value, data, city, 0.7)
-  }*/
+  }
 }  
 
 // create object that tracks population of a city for a given year
@@ -281,28 +284,69 @@ function fallBuildings(display, year, data, city, opacity){
   for (var x = 0; x < dataset.length; x++){
 
     if (dataset[x].Building == "Space Needle"){
-      var r = landmarks1[0];
 
       var pic = display.append("svg:image")
-      .attr('x', (width / NO_BUILDINGS) * r + padding)
+      .attr('x', (width / NO_BUILDINGS) * 17 + padding)
       .attr('y', -heightScale(dataset[x].Height))
       .attr('width', width/NO_BUILDINGS * 2)
       .attr('height', heightScale(dataset[x].Height))
-      .attr("xlink:href", "space_needle.png");
+      .attr("xlink:href", "images/needle.png");
 
       pic.transition().duration(500)
       .attr("y", height - heightScale(dataset[x].Height) + padding/2)
 
     }
-    if (dataset[x].Building == "Willis Tower"){
+    else if (dataset[x].Building == "Willis Tower"){
       var r = landmarks2[0];
 
       var pic = display.append("svg:image")
-      .attr('x', (width / NO_BUILDINGS) * r + padding)
+      .attr('x', (width / NO_BUILDINGS) * 11 + padding)
       .attr('y', -heightScale(dataset[x].Height))
       .attr('width', width/NO_BUILDINGS * 2)
       .attr('height', heightScale(dataset[x].Height))
-      .attr("xlink:href", "sears_tower.png");
+      .attr("xlink:href", "images/sears_tower.png");
+
+      pic.transition().duration(500)
+      .attr("y", height - heightScale(dataset[x].Height) + padding/2)
+
+    }
+    else if (dataset[x].Building == "Chrysler Building"){
+      var r = landmarks2[0];
+
+      var pic = display.append("svg:image")
+      .attr('x', (width / NO_BUILDINGS) * 20 + padding)
+      .attr('y', -heightScale(dataset[x].Height))
+      .attr('width', width/NO_BUILDINGS * 2)
+      .attr('height', heightScale(dataset[x].Height))
+      .attr("xlink:href", "images/chrysler.png");
+
+      pic.transition().duration(500)
+      .attr("y", height - heightScale(dataset[x].Height) + padding/2 + 2)
+
+    }
+    else if (dataset[x].Building == "Empire State Building"){
+      var r = landmarks2[0];
+
+      var pic = display.append("svg:image")
+      .attr('x', (width / NO_BUILDINGS) * 23 + padding)
+      .attr('y', -heightScale(dataset[x].Height))
+      .attr('width', width/NO_BUILDINGS * 2)
+      .attr('height', heightScale(dataset[x].Height))
+      .attr("xlink:href", "images/empire.png");
+
+      pic.transition().duration(500)
+      .attr("y", height - heightScale(dataset[x].Height) + padding/2)
+
+    }
+    else if (dataset[x].Building == "One World Trade Center"){
+      var r = landmarks2[0];
+
+      var pic = display.append("svg:image")
+      .attr('x', (width / NO_BUILDINGS) * 36 + padding)
+      .attr('y', -heightScale(dataset[x].Height))
+      .attr('width', width/NO_BUILDINGS * 2)
+      .attr('height', heightScale(dataset[x].Height))
+      .attr("xlink:href", "images/freedom.png");
 
       pic.transition().duration(500)
       .attr("y", height - heightScale(dataset[x].Height) + padding/2)
@@ -339,23 +383,53 @@ function drawBuildings(display, year, data, city, opacity){
       var r = landmarks1[0];
 
       var pic = display.append("svg:image")
-      .attr('x', (width / NO_BUILDINGS) * r + padding)
+      .attr('x', (width / NO_BUILDINGS) * 17 + padding)
       .attr('y', height - heightScale(dataset[x].Height) + padding/2)
       .attr('width', width/NO_BUILDINGS * 2)
       .attr('height', heightScale(dataset[x].Height))
-      .attr("xlink:href", "space_needle.png");
+      .attr("xlink:href", "images/needle.png");
 
     }
     else if (dataset[x].Building == "Willis Tower"){
-      var r = landmarks2[0];
 
       var pic = display.append("svg:image")
-      .attr('x', (width / NO_BUILDINGS) * r + padding)
+      .attr('x', (width / NO_BUILDINGS) * 11 + padding)
       .attr('y', height - heightScale(dataset[x].Height) + padding/2)
       .attr('width', 2 * width/NO_BUILDINGS)
       .attr('height', heightScale(dataset[x].Height))
-      .attr("xlink:href", "sears_tower.png");
+      .attr("xlink:href", "images/sears_tower.png");
 
+    }
+    else if (dataset[x].Building == "Chrysler Building"){
+      var r = landmarks2[0];
+
+      var pic = display.append("svg:image")
+      .attr('x', (width / NO_BUILDINGS) * 20 + padding)
+      .attr('y', height - heightScale(dataset[x].Height) + padding/2 + 2)
+      .attr('width', width/NO_BUILDINGS * 2)
+      .attr('height', heightScale(dataset[x].Height))
+      .attr("xlink:href", "images/chrysler.png");
+
+    }
+    else if (dataset[x].Building == "Empire State Building"){
+      var r = landmarks2[0];
+
+      var pic = display.append("svg:image")
+      .attr('x', (width / NO_BUILDINGS) * 23 + padding)
+      .attr('y', height - heightScale(dataset[x].Height) + padding/2)
+      .attr('width', width/NO_BUILDINGS * 2)
+      .attr('height', heightScale(dataset[x].Height))
+      .attr("xlink:href", "images/empire.png");
+    }
+    else if (dataset[x].Building == "One World Trade Center"){
+      var r = landmarks2[0];
+
+      var pic = display.append("svg:image")
+      .attr('x', (width / NO_BUILDINGS) * 36 + padding)
+      .attr('y', height - heightScale(dataset[x].Height) + padding/2)
+      .attr('width', width/NO_BUILDINGS * 2)
+      .attr('height', heightScale(dataset[x].Height))
+      .attr("xlink:href", "images/freedom.png");
     }
     else {
 
