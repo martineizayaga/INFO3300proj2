@@ -18,6 +18,13 @@ svg {padding : 10px;}
       <select id = "dropdownLeft" onchange = "selectData(value, true)" style = "border: none">
         <option value = "Chicago">Chicago</option>
         <option value = "Phoenix">Phoenix</option>
+        <option value = "New York City">New York City</option>
+        <option value = "San Francisco">San Francisco</option>
+        <option value = "Boston">Boston</option>
+        <option value = "Houston">Houston</option>
+        <option value = "Los Angeles">Los Angeles</option>
+        <option value = "Philadelphia">Philadelphia</option>
+        <option value = "Miami">Miami</option>
         <option value = "Seattle" selected>Seattle</option>
       </select>
     </p>
@@ -29,8 +36,15 @@ svg {padding : 10px;}
     <p>City: 
     <select id = "dropdownRight" onchange = "selectData(value, false)" style = "border: none">
       <option value = "Chicago" selected>Chicago</option>
-      <option value = "Phoenix">Phoenix</option>
-      <option value = "Seattle">Seattle</option>
+        <option value = "Seattle">Seattle</option>
+        <option value = "Phoenix">Phoenix</option>
+        <option value = "New York City">New York City</option>
+        <option value = "San Francisco">San Francisco</option>
+        <option value = "Boston">Boston</option>
+        <option value = "Houston">Houston</option>
+        <option value = "Los Angeles">Los Angeles</option>
+        <option value = "Philadelphia">Philadelphia</option>
+        <option value = "Miami">Miami</option>
     </select>
     </p>
   </div>
@@ -88,9 +102,11 @@ var yScale = d3.scaleLinear()
 .range([height,0]);
 
 svg.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
-.call(d3.axisLeft(yScale));
+.call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
+                                                    return d+' ft';
+                                                 }));
 
-svg.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("Height");
+svg.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
 
 svg.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2*padding+")").text("1880")
   .style("font-size", "150px")
@@ -101,9 +117,11 @@ svg.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2*
   .attr("id", "yearText");
 
 svg2.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
-.call(d3.axisLeft(yScale));
+.call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
+                                                    return d+' ft';
+                                                 }));
 
-svg2.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("Height");
+svg2.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
 
 svg2.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2*padding+")").text("1880")
   .style("font-size", "150px")
@@ -187,6 +205,10 @@ function callback(data, left, city) {
     return a.Year - b.Year;
     });
   } 
+
+  /*if (document.getElementById("year").value != 1880){
+    drawBuildings(left ? svg: svg2,document.getElementById("year").value, data, city, 0.7)
+  }*/
 }  
 
 // create object that tracks population of a city for a given year
@@ -226,27 +248,25 @@ function expandPopData(data) {
 // initializes data structures for a selected city
 function selectData(city, left) {
   if (left) {
-    d3.csv("" + city.toLowerCase() +".csv", mutateRow, function(error, data) {
-      city1 = city;
-      callback(data, left, city);
+    d3.csv("cityCSVs/" + city.toLowerCase().replace(/\s/g, '') +".csv", mutateRow, function(error, data) {
+      callback(data, left);
     });
-    d3.csv("" + city.toLowerCase() + "Population.csv", mutatePop, function(error, data) {
+    d3.csv("populationCSVs/" + city.toLowerCase().replace(/\s/g, '') + "Population.csv", mutatePop, function(error, data) {
         population_data1 = expandPopData(data);
       });
     document.getElementById("cityHeadingLeft").innerText = document.getElementById("dropdownLeft").value;
   }else {
-    d3.csv("" + city.toLowerCase() +".csv", mutateRow, function(error, data) {
-      city2 = city;
-      callback(data, left, city);
+    d3.csv("cityCSVs/" + city.toLowerCase().replace(/\s/g, '') +".csv", mutateRow, function(error, data) {
+      callback(data, left);
     });
-    d3.csv("" + city.toLowerCase() + "Population.csv", mutatePop, function(error, data) {
+    d3.csv("populationCSVs/" + city.toLowerCase().replace(/\s/g, '') + "Population.csv", mutatePop, function(error, data) {
         population_data2 = expandPopData(data);
       });
     document.getElementById("cityHeadingRight").innerText = document.getElementById("dropdownRight").value;
   }
 }
 
-function fallBuildings(display, year, data, city){
+function fallBuildings(display, year, data, city, opacity){
 
   // only use the buildings built in the inputted year
   var dataset = data.filter(function(d) { return d.Year == year})
@@ -297,12 +317,12 @@ function fallBuildings(display, year, data, city){
       bar.transition().duration(500)
       .attr("y", height - heightScale(dataset[x].Height) + padding/2)
       .style("fill", "black")
-      .style("opacity", 0.7);
+      .style("opacity", opacity);
     }
   }
 }
 
-function drawBuildings(display, year, data, city){
+function drawBuildings(display, year, data, city, opacity){
   // only use the buildings built before the inputted year
   var dataset = data.filter(function(d) { return d.Year <= year})
 
@@ -344,7 +364,7 @@ function drawBuildings(display, year, data, city){
       .attr("height", heightScale(dataset[x].Height))
       .attr("fill", "black")
       //.attr("fill", "transparent")
-      .style("opacity", 0.7);
+      .style("opacity", opacity);
     }
   }
 }
@@ -353,8 +373,8 @@ var i = 1880;                     //  set your counter to 1
 
 function animate() {           //  create a loop function
    setTimeout(function () {    //  call a 3s setTimeout when the loop is called
-      fallBuildings(svg, i, building_data, city1);     
-      fallBuildings(svg2, i, building_data2, city1);     
+      fallBuildings(svg, i, building_data, city1, 0.7);     
+      fallBuildings(svg2, i, building_data2, city2, 0.7);     
       //document.getElementById("date").innerHTML = i;
       document.getElementById("year").value = i;
       d3.select("#yearText").text(""+i);
@@ -373,8 +393,10 @@ function animate() {           //  create a loop function
 function show(){
   svg.selectAll("*").remove();
   svg.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
-  .call(d3.axisLeft(yScale));
-  svg.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("Height");
+  .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
+                                                    return d+' ft';
+                                                 }));
+  svg.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
   i = 1880;    
   svg.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+i)
   .style("font-size", "150px")
@@ -387,8 +409,10 @@ function show(){
 
   svg2.selectAll("*").remove();
   svg2.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
-  .call(d3.axisLeft(yScale));
-  svg2.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("Height");
+  .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
+                                                    return d+' ft';
+                                                 }));
+  svg2.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
   i = 1880;    
   svg2.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+i)
   .style("font-size", "150px")
@@ -408,8 +432,10 @@ function show(){
 function slide(){
   svg.selectAll("*").remove();
   svg.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
-  .call(d3.axisLeft(yScale));
-  svg.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("Height");
+  .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
+                                                    return d+' ft';
+                                                 }));
+  svg.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
   current_heights1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   //document.getElementById("date").innerHTML = document.getElementById("year").value;
   svg.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+document.getElementById("year").value)
@@ -419,13 +445,15 @@ function slide(){
   .style("text-anchor", "middle")
   .style("dominant-baseline", "central")
   .attr("id", "yearText");
-  drawBuildings(svg, document.getElementById("year").value, building_data, city1);
+  drawBuildings(svg, document.getElementById("year").value, building_data, city1, 0.7);
   //yearText.text = document.getElementById("year").value;
   //document.getElementById("buildings").innerHTML = "# of High Rises: " + building_data.filter(function(d) { return d.Year <= document.getElementById("year").value}).length;
     svg2.selectAll("*").remove();
   svg2.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
-  .call(d3.axisLeft(yScale));
-  svg2.append("text").attr("transform", "rotate(270) translate(-170, 12)").text("Height");
+  .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
+                                                    return d+' ft';
+                                                 }));
+  svg2.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
   current_heights2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   //document.getElementById("date").innerHTML = document.getElementById("year").value;
   svg2.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+document.getElementById("year").value)
@@ -435,7 +463,7 @@ function slide(){
   .style("text-anchor", "middle")
   .style("dominant-baseline", "central")
   .attr("id", "yearText2");
-  drawBuildings(svg2, document.getElementById("year").value, building_data2, city2);
+  drawBuildings(svg2, document.getElementById("year").value, building_data2, city2, 0.7);
 
   document.getElementById("leftPop").innerHTML = "Population: " + population_data1["" + document.getElementById("year").value];
   document.getElementById("rightPop").innerHTML = "Population: " + population_data2["" + document.getElementById("year").value];
