@@ -12,11 +12,11 @@ svg {padding : 10px;}
 <div style = "width: 100%; margin-left: 10px">
   <h1 style = "font-weight: 900; font-size: 36px; margin-bottom: 5px">Comparison of City Skylines</h3>
   <div style = "float: left; width:50%">
-    <h2 id="cityHeadingLeft" style = "font-weight: 800; font-size: 24px; margin-bottom: 0px">Seattle</h1>
+    <h2 id="cityHeadingLeft" style = "font-weight: 800; font-size: 28px; margin-bottom: 0px">Seattle</h1>
     <svg width="550" height="300" id="leftSvg" style = "margin-bottom: -20px"></svg>
-    <p id = "leftPop" style = "font-weight: 800; font-size: 20px" >Population: </p>
+    <p id = "leftPop" style = "font-weight: 700; font-size: 20px" >Population: </p>
     <p>City: 
-      <select id = "dropdownLeft" onchange = "selectData(value, true)">
+      <select id = "dropdownLeft" onchange = "selectData(value, true)" style = "border: none">
         <option value = "Chicago">Chicago</option>
         <option value = "Phoenix">Phoenix</option>
         <option value = "Seattle" selected>Seattle</option>
@@ -24,11 +24,11 @@ svg {padding : 10px;}
     </p>
   </div>
   <div style = "float: right; width:50%">
-    <h2 id="cityHeadingRight" style = "font-weight: 800; font-size: 24px; margin-bottom: 0px">Chicago</h1>
+    <h2 id="cityHeadingRight" style = "font-weight: 800; font-size: 28px; margin-bottom: 0px">Chicago</h1>
     <svg width="550", height="300", id="rightSvg"; style = "margin-bottom: -20px"></svg>
-    <p id = "rightPop" style = "font-weight: 800; font-size: 20px">Population: </p>
+    <p id = "rightPop" style = "font-weight: 700; font-size: 20px">Population: </p>
     <p>City: 
-    <select id = "dropdownRight" onchange = "selectData(value, false)">
+    <select id = "dropdownRight" onchange = "selectData(value, false)" style = "border: none">
       <option value = "Chicago" selected>Chicago</option>
       <option value = "Phoenix">Phoenix</option>
       <option value = "Seattle">Seattle</option>
