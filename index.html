@@ -5,39 +5,48 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <style>
 body { font-family: Segoe UI; background: linear-gradient(to bottom, #2e76a5, #e8fffd);}
-svg {padding: 10px;}
+svg {padding : 10px;}
 </style>
 </head>
 <body>
-<div style = "width: 100%">
-  <h1>Comparison of City Skylines</h3>
+<div style = "width: 100%; margin-left: 10px">
+  <h1 style = "font-weight: 900; font-size: 36px; margin-bottom: 5px">Comparison of City Skylines</h3>
   <div style = "float: left; width:50%">
-    <h2 id="cityHeadingLeft">Seattle</h1>
-    <svg width="550", height="300", id="leftSvg"></svg>
-    <p id = "leftPop">Population: </p>
-    <p>Left selection</p>
-    <select id = "dropdownLeft" onchange = "selectData(value, true)">
-      <option value = "Chicago">Chicago</option>
-      <option value = "Phoenix">Phoenix</option>
-      <option value = "Seattle" selected>Seattle</option>
-    </select>
+    <h2 id="cityHeadingLeft" style = "font-weight: 800; font-size: 24px; margin-bottom: 0px">Seattle</h1>
+    <svg width="550" height="300" id="leftSvg" style = "margin-bottom: -20px"></svg>
+    <p id = "leftPop" style = "font-weight: 800; font-size: 20px" >Population: </p>
+    <p>City: 
+      <select id = "dropdownLeft" onchange = "selectData(value, true)">
+        <option value = "Chicago">Chicago</option>
+        <option value = "Phoenix">Phoenix</option>
+        <option value = "Seattle" selected>Seattle</option>
+      </select>
+    </p>
   </div>
   <div style = "float: right; width:50%">
-    <h2 id="cityHeadingRight">Chicago</h1>
-    <svg width="550", height="300", id="rightSvg"></svg>
-    <p id = "rightPop">Population: </p>
-    <p>Right selection</p>
+    <h2 id="cityHeadingRight" style = "font-weight: 800; font-size: 24px; margin-bottom: 0px">Chicago</h1>
+    <svg width="550", height="300", id="rightSvg"; style = "margin-bottom: -20px"></svg>
+    <p id = "rightPop" style = "font-weight: 800; font-size: 20px">Population: </p>
+    <p>City: 
     <select id = "dropdownRight" onchange = "selectData(value, false)">
       <option value = "Chicago" selected>Chicago</option>
       <option value = "Phoenix">Phoenix</option>
       <option value = "Seattle">Seattle</option>
     </select>
+    </p>
   </div>
 </div>
-<div style = "width:100%">
-  Year: <input id="year" oninput="slide()" type="range" min="1880" max="2018" value="1880" style="width: 500px">
+<div style = "width:45%; margin:auto">
+  Year: <input id="year" oninput="slide()" type="range" min="1880" max="2018" value="1880" 
+  style="width: 500px; background: transparent; outline: none;">
   <br>
-  <button type="button" onclick="show()">Animate!</button>
+  <div style = "width:20%; margin:auto">
+    <button type="button" onclick="show()" 
+    style = "background-color: transparent; color: black; text-align: center; font-size: 16px; 
+    border: 2px solid black; padding: 10px 24px; font-weight:700">
+    Animate!</button>
+  </div>
+  </p>
 <!--<p id="date" style="font-size:20px;">1880</p>-->
 </div>
 <script>
@@ -60,7 +69,7 @@ var current_heights2 = [];
 var population_data1 = [];
 var population_data2 = [];
 
-var year_color = "#d3e0ea";
+var year_color = "#c5d7e5";
 
 // Create a plot
 var svg = d3.select("#leftSvg");
