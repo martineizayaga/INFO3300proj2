@@ -62,14 +62,14 @@ def pretty_append(name, url, short, end_page):
 	city_website_arr.append(CityWebsite(name, url, short, end_page))
 
 def themain():
-	pretty_append("New York", 'https://www.emporis.com/city/101028/new-york-city-ny-usa/status/existing', "nyc", 160)
-	pretty_append("Seattle", "https://www.emporis.com/city/101046/seattle-wa-usa/status/existing", "seattle", 19)
-	pretty_append("Philadelphia", "https://www.emporis.com/city/101032/philadelphia-pa-usa/status/existing", "philly", 20)
-	pretty_append("Chicago", "https://www.emporis.com/city/101030/chicago-il-usa/status/existing", "chicago", 67)
-	pretty_append("Miami", "https://www.emporis.com/city/101321/miami-fl-usa/status/existing", "miami", 20)
+	# pretty_append("New York", 'https://www.emporis.com/city/101028/new-york-city-ny-usa/status/existing', "nyc", 160)
+	# pretty_append("Seattle", "https://www.emporis.com/city/101046/seattle-wa-usa/status/existing", "seattle", 19)
+	# pretty_append("Philadelphia", "https://www.emporis.com/city/101032/philadelphia-pa-usa/status/existing", "philly", 20)
+	# pretty_append("Chicago", "https://www.emporis.com/city/101030/chicago-il-usa/status/existing", "chicago", 67)
+	# pretty_append("Miami", "https://www.emporis.com/city/101321/miami-fl-usa/status/existing", "miami", 20)
 	pretty_append("Houston", "https://www.emporis.com/city/101031/houston-tx-usa/status/existing", "houston", 18)
 	pretty_append("Los Angeles", "https://www.emporis.com/city/101029/los-angeles-ca-usa/status/existing", "la", 14)
-	pretty_append("San Francisco", "https://www.emporis.com/city/101040/san-francisco-ca-usa/status/existing", "sanfran", 26)
+	pretty_append("San Francisco", "https://www.emporis.com/city/101040/san-francisco-ca-usa/status/existing", "sanfran", 26)W
 	pretty_append("Phoenix", "https://www.emporis.com/city/101034/phoenix-az-usa/status/existing", "phoenix", 9)
 	pretty_append("Boston", "https://www.emporis.com/city/101045/boston-ma-usa/status/existing", "boston", 16)
 	getWebPages(city_website_arr)
