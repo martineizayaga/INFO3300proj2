@@ -310,6 +310,17 @@ function expandPopData(data) {
   }
   return expandedPop;
 }
+
+function initPop(left) {
+  if(left) {
+    document.getElementById("leftPop").innerHTML = "Population: " +population_data1["" + i];
+    updatePop(true, population_data1["1880"]);
+  }else {
+    document.getElementById("rightPop").innerHTML = "Population: " +population_data2["" + i];
+    updatePop(false, population_data2["1880"]);
+  }
+}
+
 // initializes data structures for a selected city
 function selectData(city, left) {
   if (left) {
@@ -319,6 +330,7 @@ function selectData(city, left) {
     });
     d3.csv("populationCSVs/" + city.toLowerCase().replace(/\s/g, '') + "Population.csv", mutatePop, function(error, data) {
         population_data1 = expandPopData(data);
+        initPop(left);
       });
     city1 = city;
     document.getElementById("cityHeadingLeft").innerText = document.getElementById("dropdownLeft").value;
@@ -329,6 +341,7 @@ function selectData(city, left) {
     });
     d3.csv("populationCSVs/" + city.toLowerCase().replace(/\s/g, '') + "Population.csv", mutatePop, function(error, data) {
         population_data2 = expandPopData(data);
+        initPop(left);
       });
     city2 = city;
     document.getElementById("cityHeadingRight").innerText = document.getElementById("dropdownRight").value;
