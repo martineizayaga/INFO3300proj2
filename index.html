@@ -138,9 +138,9 @@ var padding = 50;
 var height = 250;
 var width = 500;
 var NO_BUILDINGS = 40; // number of buildings in the final skyline
-var landmarks = {"Space Needle": 17, "Willis Tower": 11, "Empire State Building": 23, "Chrysler Building": 20, "One World Trade Center": 36, "875 North Michigan Avenue": 31, "One Liberty Place": 27, "Bank of America Center": 9, "Salesforce Tower": 25, "Transamerica Pyramid": 5, "Golden Gate Bridge": 38, "Hancock Place": 22, "Federal Reserve Bank Building": 15};
-var landmark_heights = {"Space Needle": 605, "Willis Tower": 1451, "Empire State Building": 1250, "Chrysler Building": 1046, "One World Trade Center": 1776, "875 North Michigan Avenue": 1158, "One Liberty Place": 945, "Bank of America Center": 780, "Salesforce Tower": 1070, "Transamerica Pyramid": 853, "Golden Gate Bridge": 746, "Hancock Place": 790, "Federal Reserve Bank Building": 614};
-var land = {"Seattle": ["Space Needle"], "Chicago": ["Willis Tower", "875 North Michigan Avenue"], "New York City": ["Empire State Building", "Chrysler Building", "One World Trade Center"], "Philadelphia": ["One Liberty Place"], "Houston": ["Bank of America Center"], "San Francisco": ["Transamerica Pyramid","Golden Gate Bridge","Salesforce Tower"], "Boston": ["Hancock Place", "Federal Reserve Bank Building"]};
+var landmarks = {"Space Needle": 17, "Willis Tower": 11, "Empire State Building": 23, "Chrysler Building": 20, "One World Trade Center": 36, "875 North Michigan Avenue": 31, "One Liberty Place": 27, "Bank of America Center": 9, "Salesforce Tower": 25, "Transamerica Pyramid": 5, "Golden Gate Bridge": 38, "Hancock Place": 22, "Federal Reserve Bank Building": 15, "Wachovia Financial Center": 17, "US Bank Tower":20};
+var landmark_heights = {"Space Needle": 605, "Willis Tower": 1451, "Empire State Building": 1250, "Chrysler Building": 1046, "One World Trade Center": 1776, "875 North Michigan Avenue": 1158, "One Liberty Place": 945, "Bank of America Center": 780, "Salesforce Tower": 1070, "Transamerica Pyramid": 853, "Golden Gate Bridge": 746, "Hancock Place": 790, "Federal Reserve Bank Building": 614, "Wachovia Financial Center": 764, "US Bank Tower": 1018};
+var land = {"Seattle": ["Space Needle"], "Chicago": ["Willis Tower", "875 North Michigan Avenue"], "New York City": ["Empire State Building", "Chrysler Building", "One World Trade Center"], "Philadelphia": ["One Liberty Place"], "Houston": ["Bank of America Center"], "San Francisco": ["Transamerica Pyramid","Golden Gate Bridge","Salesforce Tower"], "Boston": ["Hancock Place", "Federal Reserve Bank Building"], "Miami": ["Wachovia Financial Center"], "Los Angeles": ["US Bank Tower"]};
 var city1 = "";
 var city2 = "";
 var tallest1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -221,15 +221,19 @@ function callback(data, left, city) {
   } else if (city == "Chicago") {
     lands = [11, 12, 31, 32];
   } else if (city == "New York City") {
-    lands = [20,21,23,24,36,37]
+    lands = [20,21,23,24,36,37];
   } else if (city == "Philadelphia") {
     lands = [27, 28];
   } else if (city == "Houston") {
     lands = [9,10];
   } else if (city == "San Francisco") {
-    lands = [5,6,25,26,38,39]
+    lands = [5,6,25,26,38,39];
   } else if (city == "Boston") {
-    lands = [15,16,22,23]
+    lands = [15,16,22,23];
+  } else if (city == "Miami") {
+    lands = [17,18];
+  } else if (city == "Los Angeles"){
+    lands = [20,21];
   }
 
   if(left) {
@@ -334,6 +338,7 @@ function selectData(city, left) {
         population_data1 = expandPopData(data);
       });
     city1 = city;
+    document.getElementById("leftPop").innerHTML = "Population: " + population_data1["" + document.getElementById("year").value];
     document.getElementById("cityHeadingLeft").innerText = document.getElementById("dropdownLeft").value;
   }else {
     tallest2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -345,6 +350,7 @@ function selectData(city, left) {
       });
     city2 = city;
     document.getElementById("cityHeadingRight").innerText = document.getElementById("dropdownRight").value;
+    document.getElementById("rightPop").innerHTML = "Population: " + population_data2["" + document.getElementById("year").value];
   }
 }
 
