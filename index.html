@@ -45,6 +45,13 @@
   #leftPop, #rightPop, #leftPop + p, #rightPop + p {
     padding-left: 0.15rem;
   }
+
+  .card-footer {
+    padding-top: 1.05rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.15rem;
+    padding-left: 1.25rem;
+  }
 </style>
 </head>
 <body>
@@ -65,6 +72,8 @@
             <p id="leftPop">Population: </p>
             <p><img src = "images/person.png" width = 7 height = 20> = 40,000</p>
             <svg width="560", height="100", id="leftpeople"></svg><br><br>
+          </div>
+          <div class="card-footer">  
             <p>City: 
               <select id = "dropdownLeft" onchange = "selectData(value, true)" style = "border: solid 1px #343a40; background: #e6eef4">
                 <option value = "Chicago">Chicago</option>
@@ -92,6 +101,8 @@
         <p id = "rightPop">Population: </p>
         <p><img src = "images/person.png" width = 7 height = 20> = 40,000</p>
         <svg width="560", height="100", id="rightpeople"></svg><br><br>
+      </div>
+      <div class="card-footer">
         <p>City: 
         <select id = "dropdownRight" onchange = "selectData(value, false)" style = "border: solid 1px #343a40; background: #e6eef4">
           <option value = "Chicago" selected>Chicago</option>
