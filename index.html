@@ -45,13 +45,6 @@
   #leftPop, #rightPop, #leftPop + p, #rightPop + p {
     padding-left: 0.15rem;
   }
-
-  .card-footer {
-    padding-top: 1.05rem;
-    padding-right: 1.25rem;
-    padding-bottom: 0.15rem;
-    padding-left: 1.25rem;
-  }
 </style>
 </head>
 <body>
@@ -72,8 +65,6 @@
             <p id="leftPop">Population: </p>
             <p><img src = "images/person.png" width = 7 height = 20> = 40,000</p>
             <svg width="560", height="100", id="leftpeople"></svg><br><br>
-          </div>
-          <div class="card-footer">  
             <p>City: 
               <select id = "dropdownLeft" onchange = "selectData(value, true)" style = "border: solid 1px #343a40; background: #e6eef4">
                 <option value = "Chicago">Chicago</option>
@@ -101,8 +92,6 @@
         <p id = "rightPop">Population: </p>
         <p><img src = "images/person.png" width = 7 height = 20> = 40,000</p>
         <svg width="560", height="100", id="rightpeople"></svg><br><br>
-      </div>
-      <div class="card-footer">
         <p>City: 
         <select id = "dropdownRight" onchange = "selectData(value, false)" style = "border: solid 1px #343a40; background: #e6eef4">
           <option value = "Chicago" selected>Chicago</option>
@@ -135,7 +124,7 @@
   <div class="row">
     <div  style="margin: 0 auto">
     <div class="form-group" style = "width:20%">
-      <button type="button" onclick="show()" 
+      <button id="animation" type="button" onclick="show()" 
       style = "background-color: transparent; color: black; text-align: center; font-size: 16px; 
       border: 2px solid #343a40; padding: 10px 24px; font-weight:700; stroke: #343a40">
       Animate!</button>
@@ -162,6 +151,7 @@ var tallest2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 var population_data1 = [];
 var population_data2 = [];
 var year_color = "#c5d7e5";
+var stopped = false;
 // Create a plot
 var svg = d3.select("#leftSvg");
 var svg2 = d3.select("#rightSvg");
@@ -463,52 +453,62 @@ function animate() {           //  create a loop function
       updatePop(true, population_data1["" + i])
       document.getElementById("rightPop").innerHTML = "Population: " + population_data2["" + i];
       updatePop(false, population_data2["" + i])
+      if (stopped){
+        document.getElementById("animation").innerHTML = "Animate!";
+        stopped = false;
+        return;
+      }
       //document.getElementById("buildings").innerHTML = 
   //"# of High Rises: " + building_data.filter(function(d) { return d.Year <= i}).length;
-      i++;                     //  increment the counter
+      i++;                    //  increment the counter
       if (i < 2019) {            //  if the counter < 10, call the loop function
          animate();             //  ..  again which will trigger another 
       }                        //  ..  setTimeout()
    }, 200)
 }
 function show(){
-  svg.selectAll("*").remove();
-  svg.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
-  .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
-                                                    return d+' ft';
-                                                 }));
-  svg.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
-  i = 1880;    
-  svg.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+i)
-  .style("font-size", "150px")
-  .style("fill", year_color)
-  .style("font-weight", 900)
-  .style("text-anchor", "middle")
-  .style("dominant-baseline", "central")
-  .attr("id", "yearText");
-  current_heights1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  svg2.selectAll("*").remove();
-  svg2.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
-  .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
-                                                    return d+' ft';
-                                                 }));
-  svg2.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
-  i = 1880;    
-  svg2.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+i)
-  .style("font-size", "150px")
-  .style("fill", year_color)
-  .style("font-weight", 900)
-  .style("text-anchor", "middle")
-  .style("dominant-baseline", "central")
-  .attr("id", "yearText2");
-  current_heights2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  document.getElementById("leftPop").innerHTML += population_data1["1880"];
-  updatePop(true, population_data1["1880"]);
-  document.getElementById("rightPop").innerHTML += population_data2["1880"];
-   updatePop(false, population_data2["1880"]);
-  drawInitial(svg, city1, 0.05);
-  drawInitial(svg2, city2, 0.05);
-  animate();
+  if (document.getElementById("animation").innerHTML == "Stop"){
+    stopped = true;
+  } else {
+    svg.selectAll("*").remove();
+    svg.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
+    .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
+                                                      return d+' ft';
+                                                   }));
+    svg.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
+    i = 1880;    
+    svg.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+i)
+    .style("font-size", "150px")
+    .style("fill", year_color)
+    .style("font-weight", 900)
+    .style("text-anchor", "middle")
+    .style("dominant-baseline", "central")
+    .attr("id", "yearText");
+    current_heights1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    svg2.selectAll("*").remove();
+    svg2.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
+    .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
+                                                      return d+' ft';
+                                                   }));
+    svg2.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
+    i = 1880;    
+    svg2.append("text").attr("transform", "translate(" + (padding+width/2) + "," + 2*padding+")").text(""+i)
+    .style("font-size", "150px")
+    .style("fill", year_color)
+    .style("font-weight", 900)
+    .style("text-anchor", "middle")
+    .style("dominant-baseline", "central")
+    .attr("id", "yearText2");
+    current_heights2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    document.getElementById("leftPop").innerHTML += population_data1["1880"];
+    updatePop(true, population_data1["1880"]);
+    document.getElementById("rightPop").innerHTML += population_data2["1880"];
+     updatePop(false, population_data2["1880"]);
+    drawInitial(svg, city1, 0.05);
+    drawInitial(svg2, city2, 0.05);
+    document.getElementById("animation").innerHTML = "Stop";
+    animate();
+  }
 }
 function slide(){
   svg.selectAll("*").remove();
