@@ -453,7 +453,7 @@ function animate() {           //  create a loop function
       updatePop(true, population_data1["" + i])
       document.getElementById("rightPop").innerHTML = "Population: " + population_data2["" + i];
       updatePop(false, population_data2["" + i])
-      if (stopped){
+      if (stopped || i == 2018){
         document.getElementById("animation").innerHTML = "Animate!";
         stopped = false;
         return;
