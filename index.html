@@ -28,10 +28,10 @@
   }
 
   .card-body {
-        padding-top: 0.5rem;
-    padding-right: 0.5rem;
+  	padding-top: 0.5rem;
+    padding-right: 0.3rem;
     padding-bottom: 0.5rem;
-    padding-left: 0.6rem;
+    padding-left: 0.15rem;
   }
 
   .card-header {
@@ -44,6 +44,10 @@
   #animate-bar {
     width:45%;
     margin: 1rem auto;
+  }
+
+  #leftPop, #rightPop, #leftPop + p, #rightPop + p {
+  	padding-left: 0.15rem;
   }
 </style>
 </head>
@@ -59,7 +63,7 @@
 		    <h2 id="cityHeadingLeft">Seattle</h2>
       </div>
         <div class="card-body">
-		    <svg width="550" height="300" id="leftSvg"></svg>
+		    <svg width="560" height="300" id="leftSvg"></svg>
         
           
     		    <p id="leftPop">Population: </p>
@@ -86,7 +90,7 @@
 		    <h2 id="cityHeadingRight">Chicago</h2>
       </div>
         <div class="card-body">
-		    <svg width="550", height="300", id="rightSvg"></svg>
+		    <svg width="560", height="300", id="rightSvg"></svg>
 		    <p id = "rightPop">Population: </p>
 		    <p>City: 
 		    <select id = "dropdownRight" onchange = "selectData(value, false)" style = "border: none">
@@ -110,7 +114,7 @@
 	<div class="row">
     <div  style="margin: 0 auto">
       <div class="form-group" style="margin-bottom: 0.5rem;
-    margin-top: 0.5rem;">
+    margin-top: 1.4rem;">
         <label>Year: </label>
 	       <input id="year" oninput="slide()" type="range" min="1880" max="2018" value="1880" 
 	  style="width: 500px; background: transparent; outline: none;">
