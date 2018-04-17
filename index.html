@@ -544,7 +544,7 @@ function updatePop(left, number){
   var counter = Number(number.replace(/,/g, ''));
   var array = [];
   var i = 0;
-  while (i * 40000 < counter){
+  while (i * 40000 + 20000 < counter){
     array.push(i);
     i++;
   }
