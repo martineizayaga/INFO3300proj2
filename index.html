@@ -9,38 +9,85 @@
 <title> Project 2 </title>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <style>
-body { font-family: Segoe UI; background: linear-gradient(to bottom, #2e76a5, #e8fffd);}
-svg {padding : 10px;}
+  body {
+    font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    background: linear-gradient(to bottom, #2e76a5, #e8fffd);
+  }
+  svg {
+    padding : 10px;
+  }
+  #cityHeadingLeft, #cityHeadingRight {
+    margin-bottom: -20px;
+  }
+  #titleSkyline {
+    font-size: 5.8rem;
+    margin-bottom: 0.75rem;
+  }
+  .card {
+    background-color: transparent;
+  }
+
+  .card-body {
+    padding-top: 0.5rem;
+    padding-right: 0rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.1rem;
+  }
+
+  .card-header {
+    padding-top: 0.75rem;
+    padding-right: 1.25rem;
+    padding-bottom: 1.95rem;
+    padding-left: 1.25rem;
+  }
+
+  #animate-bar {
+    width:45%;
+    margin: 1rem auto;
+  }
 </style>
 </head>
 <body>
 <div class="container">
-	<div style = "width: 100%; margin-left: 10px">
-	  <h1 class="display-4">Comparison of City Skylines</h1>
+	
+	  <h1 id="titleSkyline" class="display-2 text-center">Comparison of City Skylines</h1>
+    <p class="lead text-center">Please make the screen as wide as possible for optimal viewing. Thanks!</p>
 	  <div class="row">
-	  	<div style = "float: left; width:50%">
-		    <h2 id="cityHeadingLeft" style = "font-weight: 800; font-size: 28px; margin-bottom: 0px">Seattle</h2>
-		    <svg width="550" height="300" id="leftSvg" style = "margin-bottom: -20px"></svg>
-		    <p id = "leftPop" style = "font-weight: 700; font-size: 20px" >Population: </p>
-		    <p>City: 
-		      <select id = "dropdownLeft" onchange = "selectData(value, true)" style = "border: none">
-		        <option value = "Chicago">Chicago</option>
-		        <option value = "Phoenix">Phoenix</option>
-		        <option value = "New York City">New York City</option>
-		        <option value = "San Francisco">San Francisco</option>
-		        <option value = "Boston">Boston</option>
-		        <option value = "Houston">Houston</option>
-		        <option value = "Los Angeles">Los Angeles</option>
-		        <option value = "Philadelphia">Philadelphia</option>
-		        <option value = "Miami">Miami</option>
-		        <option value = "Seattle" selected>Seattle</option>
-		      </select>
-		    </p>
+	  	<div class="col-xs">
+        <div class="card">
+          <div class="card-header">
+		    <h2 id="cityHeadingLeft">Seattle</h2>
+      </div>
+        <div class="card-body">
+		    <svg width="550" height="300" id="leftSvg"></svg>
+        
+          
+    		    <p id="leftPop">Population: </p>
+    		    <p>City: 
+    		      <select id = "dropdownLeft" onchange = "selectData(value, true)" style = "border: none">
+    		        <option value = "Chicago">Chicago</option>
+    		        <option value = "Phoenix">Phoenix</option>
+    		        <option value = "New York City">New York City</option>
+    		        <option value = "San Francisco">San Francisco</option>
+    		        <option value = "Boston">Boston</option>
+    		        <option value = "Houston">Houston</option>
+    		        <option value = "Los Angeles">Los Angeles</option>
+    		        <option value = "Philadelphia">Philadelphia</option>
+    		        <option value = "Miami">Miami</option>
+    		        <option value = "Seattle" selected>Seattle</option>
+    		      </select>
+    		    </p>
+          </div>
+        </div>
 		  </div>
-		  <div style = "float: right; width:50%">
-		    <h2 id="cityHeadingRight" style = "font-weight: 800; font-size: 28px; margin-bottom: 0px">Chicago</h2>
-		    <svg width="550", height="300", id="rightSvg"; style = "margin-bottom: -20px"></svg>
-		    <p id = "rightPop" style = "font-weight: 700; font-size: 20px">Population: </p>
+		  <div class="col-xs">
+        <div class="card">
+          <div class="card-header">
+		    <h2 id="cityHeadingRight">Chicago</h2>
+      </div>
+        <div class="card-body">
+		    <svg width="550", height="300", id="rightSvg"></svg>
+		    <p id = "rightPop">Population: </p>
 		    <p>City: 
 		    <select id = "dropdownRight" onchange = "selectData(value, false)" style = "border: none">
 		      <option value = "Chicago" selected>Chicago</option>
@@ -55,21 +102,30 @@ svg {padding : 10px;}
 		        <option value = "Miami">Miami</option>
 		    </select>
 		    </p>
+      </div>
+    </div>
 		  </div>
 	  </div>
-		  
-	</div>
-	<div style = "width:45%; margin:auto">
-	  Year: <input id="year" oninput="slide()" type="range" min="1880" max="2018" value="1880" 
+
+	<div class="row">
+    <div  style="margin: 0 auto">
+      <div class="form-group" style="margin-bottom: 0.5rem;
+    margin-top: 0.5rem;">
+        <label>Year: </label>
+	       <input id="year" oninput="slide()" type="range" min="1880" max="2018" value="1880" 
 	  style="width: 500px; background: transparent; outline: none;">
-	  <br>
-	  <div style = "width:20%; margin:auto">
+  </div>
+  </div>
+	</div>
+  <div class="row">
+    <div  style="margin: 0 auto">
+	  <div class="form-group" style = "width:20%">
 	    <button type="button" onclick="show()" 
 	    style = "background-color: transparent; color: black; text-align: center; font-size: 16px; 
 	    border: 2px solid black; padding: 10px 24px; font-weight:700">
 	    Animate!</button>
 	  </div>
-	  </p>
+  </div>
 	</div>
 </div>
 <script>
