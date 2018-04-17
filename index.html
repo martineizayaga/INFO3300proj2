@@ -1,5 +1,11 @@
 <html>
 <head>
+<!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <title> Project 2 </title>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <style>
@@ -8,58 +14,63 @@ svg {padding : 10px;}
 </style>
 </head>
 <body>
-<div style = "width: 100%; margin-left: 10px">
-  <h1 style = "font-weight: 900; font-size: 36px; margin-bottom: 5px">Comparison of City Skylines</h3>
-  <div style = "float: left; width:50%">
-    <h2 id="cityHeadingLeft" style = "font-weight: 800; font-size: 28px; margin-bottom: 0px">Seattle</h1>
-    <svg width="550" height="300" id="leftSvg" style = "margin-bottom: -20px"></svg>
-    <p id = "leftPop" style = "font-weight: 700; font-size: 20px" >Population: </p>
-    <p>City: 
-      <select id = "dropdownLeft" onchange = "selectData(value, true)" style = "border: none">
-        <option value = "Chicago">Chicago</option>
-        <option value = "Phoenix">Phoenix</option>
-        <option value = "New York City">New York City</option>
-        <option value = "San Francisco">San Francisco</option>
-        <option value = "Boston">Boston</option>
-        <option value = "Houston">Houston</option>
-        <option value = "Los Angeles">Los Angeles</option>
-        <option value = "Philadelphia">Philadelphia</option>
-        <option value = "Miami">Miami</option>
-        <option value = "Seattle" selected>Seattle</option>
-      </select>
-    </p>
-  </div>
-  <div style = "float: right; width:50%">
-    <h2 id="cityHeadingRight" style = "font-weight: 800; font-size: 28px; margin-bottom: 0px">Chicago</h1>
-    <svg width="550", height="300", id="rightSvg"; style = "margin-bottom: -20px"></svg>
-    <p id = "rightPop" style = "font-weight: 700; font-size: 20px">Population: </p>
-    <p>City: 
-    <select id = "dropdownRight" onchange = "selectData(value, false)" style = "border: none">
-      <option value = "Chicago" selected>Chicago</option>
-        <option value = "Seattle">Seattle</option>
-        <option value = "Phoenix">Phoenix</option>
-        <option value = "New York City">New York City</option>
-        <option value = "San Francisco">San Francisco</option>
-        <option value = "Boston">Boston</option>
-        <option value = "Houston">Houston</option>
-        <option value = "Los Angeles">Los Angeles</option>
-        <option value = "Philadelphia">Philadelphia</option>
-        <option value = "Miami">Miami</option>
-    </select>
-    </p>
-  </div>
-</div>
-<div style = "width:45%; margin:auto">
-  Year: <input id="year" oninput="slide()" type="range" min="1880" max="2018" value="1880" 
-  style="width: 500px; background: transparent; outline: none;">
-  <br>
-  <div style = "width:20%; margin:auto">
-    <button type="button" onclick="show()" 
-    style = "background-color: transparent; color: black; text-align: center; font-size: 16px; 
-    border: 2px solid black; padding: 10px 24px; font-weight:700">
-    Animate!</button>
-  </div>
-  </p>
+<div class="container">
+	<div style = "width: 100%; margin-left: 10px">
+	  <h1 class="display-4">Comparison of City Skylines</h1>
+	  <div class="row">
+	  	<div style = "float: left; width:50%">
+		    <h2 id="cityHeadingLeft" style = "font-weight: 800; font-size: 28px; margin-bottom: 0px">Seattle</h2>
+		    <svg width="550" height="300" id="leftSvg" style = "margin-bottom: -20px"></svg>
+		    <p id = "leftPop" style = "font-weight: 700; font-size: 20px" >Population: </p>
+		    <p>City: 
+		      <select id = "dropdownLeft" onchange = "selectData(value, true)" style = "border: none">
+		        <option value = "Chicago">Chicago</option>
+		        <option value = "Phoenix">Phoenix</option>
+		        <option value = "New York City">New York City</option>
+		        <option value = "San Francisco">San Francisco</option>
+		        <option value = "Boston">Boston</option>
+		        <option value = "Houston">Houston</option>
+		        <option value = "Los Angeles">Los Angeles</option>
+		        <option value = "Philadelphia">Philadelphia</option>
+		        <option value = "Miami">Miami</option>
+		        <option value = "Seattle" selected>Seattle</option>
+		      </select>
+		    </p>
+		  </div>
+		  <div style = "float: right; width:50%">
+		    <h2 id="cityHeadingRight" style = "font-weight: 800; font-size: 28px; margin-bottom: 0px">Chicago</h2>
+		    <svg width="550", height="300", id="rightSvg"; style = "margin-bottom: -20px"></svg>
+		    <p id = "rightPop" style = "font-weight: 700; font-size: 20px">Population: </p>
+		    <p>City: 
+		    <select id = "dropdownRight" onchange = "selectData(value, false)" style = "border: none">
+		      <option value = "Chicago" selected>Chicago</option>
+		        <option value = "Seattle">Seattle</option>
+		        <option value = "Phoenix">Phoenix</option>
+		        <option value = "New York City">New York City</option>
+		        <option value = "San Francisco">San Francisco</option>
+		        <option value = "Boston">Boston</option>
+		        <option value = "Houston">Houston</option>
+		        <option value = "Los Angeles">Los Angeles</option>
+		        <option value = "Philadelphia">Philadelphia</option>
+		        <option value = "Miami">Miami</option>
+		    </select>
+		    </p>
+		  </div>
+	  </div>
+		  
+	</div>
+	<div style = "width:45%; margin:auto">
+	  Year: <input id="year" oninput="slide()" type="range" min="1880" max="2018" value="1880" 
+	  style="width: 500px; background: transparent; outline: none;">
+	  <br>
+	  <div style = "width:20%; margin:auto">
+	    <button type="button" onclick="show()" 
+	    style = "background-color: transparent; color: black; text-align: center; font-size: 16px; 
+	    border: 2px solid black; padding: 10px 24px; font-weight:700">
+	    Animate!</button>
+	  </div>
+	  </p>
+	</div>
 </div>
 <script>
 
@@ -548,6 +559,10 @@ function slide(){
   
 
 </script>
-
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </body>
 </html>
