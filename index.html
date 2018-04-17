@@ -26,115 +26,112 @@
   .card {
     background-color: transparent;
   }
-
   .card-body {
-  	padding-top: 0.5rem;
+    padding-top: 0.5rem;
     padding-right: 0rem;
     padding-bottom: 0.5rem;
     padding-left: 0.15rem;
   }
-
   .card-header {
     padding-top: 0.75rem;
     padding-right: 1.25rem;
     padding-bottom: 1.95rem;
     padding-left: 1.25rem;
   }
-
   #animate-bar {
     width:45%;
     margin: 1rem auto;
   }
-
   #leftPop, #rightPop, #leftPop + p, #rightPop + p {
-  	padding-left: 0.15rem;
+    padding-left: 0.15rem;
   }
 </style>
 </head>
 <body>
 <div class="container">
-	
-	  <h1 id="titleSkyline" class="display-2 text-center">Comparison of City Skylines</h1>
+  
+    <h1 id="titleSkyline" class="display-2 text-center">Comparison of City Skylines</h1>
     <p class="lead text-center">Please make the screen as wide as possible for optimal viewing. Thanks!</p>
-	  <div class="row">
-	  	<div class="col-xs">
+    <div class="row">
+      <div class="col-xs">
         <div class="card">
           <div class="card-header">
-		    <h2 id="cityHeadingLeft">Seattle</h2>
+        <h2 id="cityHeadingLeft">Seattle</h2>
       </div>
         <div class="card-body">
-		    <svg width="565" height="300" id="leftSvg"></svg>
+        <svg width="565" height="300" id="leftSvg"></svg>
         
           
-    		    <p id="leftPop">Population: </p>
-    		    <p>City: 
-    		      <select id = "dropdownLeft" onchange = "selectData(value, true)" style = "border: solid 1px #343a40; background: #e6eef4">
-    		        <option value = "Chicago">Chicago</option>
-    		        <option value = "Phoenix">Phoenix</option>
-    		        <option value = "New York City">New York City</option>
-    		        <option value = "San Francisco">San Francisco</option>
-    		        <option value = "Boston">Boston</option>
-    		        <option value = "Houston">Houston</option>
-    		        <option value = "Los Angeles">Los Angeles</option>
-    		        <option value = "Philadelphia">Philadelphia</option>
-    		        <option value = "Miami">Miami</option>
-    		        <option value = "Seattle" selected>Seattle</option>
-    		      </select>
-    		    </p>
+            <p id="leftPop">Population: </p>
+            <svg width="560", height="100", id="leftpeople"></svg><br><br>
+            <p>City: 
+              <select id = "dropdownLeft" onchange = "selectData(value, true)" style = "border: solid 1px #343a40; background: #e6eef4">
+                <option value = "Chicago">Chicago</option>
+                <option value = "Phoenix">Phoenix</option>
+                <option value = "New York City">New York City</option>
+                <option value = "San Francisco">San Francisco</option>
+                <option value = "Boston">Boston</option>
+                <option value = "Houston">Houston</option>
+                <option value = "Los Angeles">Los Angeles</option>
+                <option value = "Philadelphia">Philadelphia</option>
+                <option value = "Miami">Miami</option>
+                <option value = "Seattle" selected>Seattle</option>
+              </select>
+            </p>
           </div>
         </div>
-		  </div>
-		  <div class="col-xs">
+      </div>
+      <div class="col-xs">
         <div class="card">
           <div class="card-header">
-		    <h2 id="cityHeadingRight">Chicago</h2>
+        <h2 id="cityHeadingRight">Chicago</h2>
       </div>
         <div class="card-body">
-		    <svg width="565", height="300", id="rightSvg"></svg>
-		    <p id = "rightPop">Population: </p>
-		    <p>City: 
-		    <select id = "dropdownRight" onchange = "selectData(value, false)" style = "border: solid 1px #343a40; background: #e6eef4">
-		      <option value = "Chicago" selected>Chicago</option>
-		        <option value = "Seattle">Seattle</option>
-		        <option value = "Phoenix">Phoenix</option>
-		        <option value = "New York City">New York City</option>
-		        <option value = "San Francisco">San Francisco</option>
-		        <option value = "Boston">Boston</option>
-		        <option value = "Houston">Houston</option>
-		        <option value = "Los Angeles">Los Angeles</option>
-		        <option value = "Philadelphia">Philadelphia</option>
-		        <option value = "Miami">Miami</option>
-		    </select>
-		    </p>
+        <svg width="565", height="300", id="rightSvg"></svg>
+        <p id = "rightPop">Population: </p>
+        <svg width="560", height="100", id="rightpeople"></svg><br><br>
+        <p>City: 
+        <select id = "dropdownRight" onchange = "selectData(value, false)" style = "border: solid 1px #343a40; background: #e6eef4">
+          <option value = "Chicago" selected>Chicago</option>
+            <option value = "Seattle">Seattle</option>
+            <option value = "Phoenix">Phoenix</option>
+            <option value = "New York City">New York City</option>
+            <option value = "San Francisco">San Francisco</option>
+            <option value = "Boston">Boston</option>
+            <option value = "Houston">Houston</option>
+            <option value = "Los Angeles">Los Angeles</option>
+            <option value = "Philadelphia">Philadelphia</option>
+            <option value = "Miami">Miami</option>
+        </select>
+        </p>
       </div>
     </div>
-		  </div>
-	  </div>
+      </div>
+    </div>
 
-	<div class="row">
+  <div class="row">
     <div  style="margin: 0 auto">
       <div class="form-group" style="margin-bottom: 0.5rem;
     margin-top: 1.4rem;">
         <label>Year: </label>
-	       <input id="year" oninput="slide()" type="range" min="1880" max="2018" value="1880" 
-	  style="width: 500px; background: transparent; outline: none;">
+         <input id="year" oninput="slide()" type="range" min="1880" max="2018" value="1880" 
+    style="width: 500px; background: transparent; outline: none;">
   </div>
   </div>
-	</div>
+  </div>
   <div class="row">
     <div  style="margin: 0 auto">
-	  <div class="form-group" style = "width:20%">
-	    <button type="button" onclick="show()" 
-	    style = "background-color: transparent; color: black; text-align: center; font-size: 16px; 
-	    border: 2px solid #343a40; padding: 10px 24px; font-weight:700; stroke: #343a40">
-	    Animate!</button>
-	  </div>
+    <div class="form-group" style = "width:20%">
+      <button type="button" onclick="show()" 
+      style = "background-color: transparent; color: black; text-align: center; font-size: 16px; 
+      border: 2px solid #343a40; padding: 10px 24px; font-weight:700; stroke: #343a40">
+      Animate!</button>
+    </div>
   </div>
-	</div>
+  </div>
 </div>
 <script>
-
-var heights_array = [] // array (length 40) of the final heights of each building
+var heights_array = [] 
 var heights_array2 = []
 var building_data = [] // the csv data
 var building_data2 = []
@@ -149,32 +146,26 @@ var city1 = "";
 var city2 = "";
 var tallest1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var tallest2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
 var population_data1 = [];
 var population_data2 = [];
-
 var year_color = "#c5d7e5";
-
 // Create a plot
 var svg = d3.select("#leftSvg");
 var svg2 = d3.select("#rightSvg");
-
+var svgl = d3.select("#leftpeople");
+var svgr = d3.select("#rightpeople");
 // scale from building height to svg height
 var heightScale = d3.scaleLinear()
 .domain([2000,0])
 .range([height,0]);
-
 var yScale = d3.scaleLinear()
 .domain([0,2000])
 .range([height,0]);
-
 svg.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
 .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
                                                     return d+' ft';
                                                  }));
-
 svg.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
-
 svg.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2*padding+")").text("1880")
   .style("font-size", "150px")
   .style("fill", year_color)
@@ -182,14 +173,11 @@ svg.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2*
   .style("text-anchor", "middle")
   .style("dominant-baseline", "central")
   .attr("id", "yearText");
-
 svg2.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
 .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
                                                     return d+' ft';
                                                  }));
-
 svg2.append("text").attr("transform", "rotate(270) translate(-170, 5)").text("Height");
-
 svg2.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2*padding+")").text("1880")
   .style("font-size", "150px")
   .style("fill", year_color)
@@ -197,10 +185,8 @@ svg2.append("text").attr("transform", "translate(" + (width/2+padding) + "," + 2
   .style("text-anchor", "middle")
   .style("dominant-baseline", "central")
   .attr("id", "yearText2");
-
 selectData("Seattle", true);
 selectData("Chicago", false);
-
 // get rid of letters in number fields
 function mutateRow(row) {
   row["Year"] = Number(row["Year"]);
@@ -208,17 +194,13 @@ function mutateRow(row) {
   row["Position"] = 0;
   return row;
 }
-
 // convert year to a number
 function mutatePop(row) {
   row["Year"] = Number(row["Year"]);
   return row;
 }
-
 function callback(data, left, city) {
-
   var no_buildings = NO_BUILDINGS;
-
   var lands = []
   if (city == "Seattle"){
     lands = [17, 18];
@@ -239,21 +221,20 @@ function callback(data, left, city) {
   } else if (city == "Los Angeles"){
     lands = [20,21];
   }
-
   if(left) {
     svg.selectAll("rect").remove();
     svg.selectAll("image").remove();
+    svgl.selectAll("image").remove();
     document.getElementById("leftPop").innerHTML = "Population: "
     height_added1 = [];
   }else {
     svg2.selectAll("rect").remove();
     svg2.selectAll("image").remove();
+    svgr.selectAll("image").remove();
     document.getElementById("rightPop").innerHTML = "Population: "
     height_added2 = [];
   }
-
   data = data.filter(function(d) { return d.Year > 0;});
-
   for (var x = 0; x < data.length; x++){
     if (!(Object.keys(landmarks).includes(data[x]["Building"]))){
       var r = Math.floor(Math.random() * NO_BUILDINGS);
@@ -277,7 +258,6 @@ function callback(data, left, city) {
       }
     }
   }
-
   if(left) {
     city1 = city;
     building_data = data.sort(function(a, b) { 
@@ -289,14 +269,11 @@ function callback(data, left, city) {
     return a.Year - b.Year;
     });
   } 
-
   if (document.getElementById("year").value != 1880){
     drawBuildings(left ? svg: svg2,document.getElementById("year").value, data, city, 0.7)
   }
-
   drawInitial(left ? svg: svg2, city, 0.05);
 }  
-
 // create object that tracks population of a city for a given year
 function expandPopData(data) {
   var expandedPop = {};
@@ -330,7 +307,6 @@ function expandPopData(data) {
   }
   return expandedPop;
 }
-
 // initializes data structures for a selected city
 function selectData(city, left) {
   if (left) {
@@ -342,7 +318,6 @@ function selectData(city, left) {
         population_data1 = expandPopData(data);
       });
     city1 = city;
-    document.getElementById("leftPop").innerHTML = "Population: " + population_data1["" + document.getElementById("year").value];
     document.getElementById("cityHeadingLeft").innerText = document.getElementById("dropdownLeft").value;
   }else {
     tallest2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -354,21 +329,15 @@ function selectData(city, left) {
       });
     city2 = city;
     document.getElementById("cityHeadingRight").innerText = document.getElementById("dropdownRight").value;
-    document.getElementById("rightPop").innerHTML = "Population: " + population_data2["" + document.getElementById("year").value];
   }
 }
-
 function fallBuildings(display, year, data, city, opacity){
-
   // only use the buildings built in the inputted year
   var dataset = data.filter(function(d) { return d.Year == year})
-
   if (dataset == false){
     return;
   }
-
    if (year == 1973 && city == "New York City"){
-
     var pic = display.append("svg:image")
       .attr('x', (width / NO_BUILDINGS) * 36 + padding)
       .attr('y', -heightScale(1730))
@@ -376,18 +345,14 @@ function fallBuildings(display, year, data, city, opacity){
       .attr('height', heightScale(1730))
       .attr("xlink:href", "images/wtc.png")
       .attr("class", "wtc");
-
       pic.transition().duration(500)
       .attr("y", height - heightScale(1730) + padding/2);
   }
-
   if (year == 2002 && city == "New York City"){
     display.selectAll(".wtc").remove();
   }
-
   // iterate through the data
   for (var x = 0; x < dataset.length; x++){
-
     if (Object.keys(landmarks).includes(dataset[x].Building)){
       var pic = display.append("svg:image")
       .attr('x', (width / NO_BUILDINGS) * landmarks[dataset[x].Building] + padding)
@@ -395,7 +360,6 @@ function fallBuildings(display, year, data, city, opacity){
       .attr('width', width/NO_BUILDINGS * 2)
       .attr('height', heightScale(dataset[x].Height))
       .attr("xlink:href", "images/" + dataset[x].Building.toLowerCase().replace(/\s/g, '') + ".png");
-
       pic.transition().duration(500)
       .attr("y", height - heightScale(dataset[x].Height) + padding/2)
     }
@@ -406,7 +370,6 @@ function fallBuildings(display, year, data, city, opacity){
       .attr("width", width / NO_BUILDINGS)
       .attr("height", heightScale(dataset[x].Height))
       .attr("fill", "transparent");
-
       bar.transition().duration(500)
       .attr("y", height - heightScale(dataset[x].Height) + padding/2)
       .style("fill", "black")
@@ -414,7 +377,6 @@ function fallBuildings(display, year, data, city, opacity){
     }
   }
 }
-
 function drawInitial(display, city, opacity){
   for (var x = 0; x < NO_BUILDINGS; x++){
     var bar = display.append("rect")
@@ -439,15 +401,12 @@ function drawInitial(display, city, opacity){
   }
   
 }
-
 function drawBuildings(display, year, data, city, opacity){
   // only use the buildings built before the inputted year
   var dataset = data.filter(function(d) { return d.Year <= year})
-
   if (dataset == false){
     return;
   }
-
   if (year >= 1973 && year <= 2001 && city == "New York City"){
     var pic = display.append("svg:image")
       .attr('x', (width / NO_BUILDINGS) * 36 + padding)
@@ -456,10 +415,8 @@ function drawBuildings(display, year, data, city, opacity){
       .attr('height', heightScale(1730))
       .attr("xlink:href", "images/wtc.png");
   }
-
   // iterate through the data
   for (var x = 0; x < dataset.length; x++){
-
     if (Object.keys(landmarks).includes(dataset[x].Building)){
       var pic = display.append("svg:image")
       .attr('x', (width / NO_BUILDINGS) * landmarks[dataset[x].Building] + padding)
@@ -468,9 +425,7 @@ function drawBuildings(display, year, data, city, opacity){
       .attr('height', heightScale(dataset[x].Height))
       .attr("xlink:href", "images/" + dataset[x].Building.toLowerCase().replace(/\s/g, '') + ".png");
     }
-
     else {
-
       var bar = display.append("rect")
       .attr("x", (width / NO_BUILDINGS) * dataset[x].Position + padding)
       .attr("y", height - heightScale(dataset[x].Height) + padding/2)
@@ -482,9 +437,7 @@ function drawBuildings(display, year, data, city, opacity){
     }
   }
 }
-
 var i = 1880;                     //  set your counter to 1
-
 function animate() {           //  create a loop function
    setTimeout(function () {    //  call a 3s setTimeout when the loop is called
       fallBuildings(svg, i, building_data, city1, 0.7);     
@@ -494,7 +447,9 @@ function animate() {           //  create a loop function
       d3.select("#yearText").text(""+i);
       d3.select("#yearText2").text(""+i);
       document.getElementById("leftPop").innerHTML = "Population: " +population_data1["" + i];
+      updatePop(true, population_data1["" + i])
       document.getElementById("rightPop").innerHTML = "Population: " + population_data2["" + i];
+      updatePop(false, population_data2["" + i])
       //document.getElementById("buildings").innerHTML = 
   //"# of High Rises: " + building_data.filter(function(d) { return d.Year <= i}).length;
       i++;                     //  increment the counter
@@ -503,7 +458,6 @@ function animate() {           //  create a loop function
       }                        //  ..  setTimeout()
    }, 200)
 }
-
 function show(){
   svg.selectAll("*").remove();
   svg.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
@@ -520,7 +474,6 @@ function show(){
   .style("dominant-baseline", "central")
   .attr("id", "yearText");
   current_heights1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
   svg2.selectAll("*").remove();
   svg2.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
   .call(d3.axisLeft(yScale).ticks(10).tickFormat(function(d){
@@ -536,16 +489,14 @@ function show(){
   .style("dominant-baseline", "central")
   .attr("id", "yearText2");
   current_heights2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
   document.getElementById("leftPop").innerHTML += population_data1["1880"];
+  updatePop(true, population_data1["1880"]);
   document.getElementById("rightPop").innerHTML += population_data2["1880"];
-
+   updatePop(false, population_data2["1880"]);
   drawInitial(svg, city1, 0.05);
   drawInitial(svg2, city2, 0.05);
-
   animate();
 }
-
 function slide(){
   svg.selectAll("*").remove();
   svg.append("g").attr("transform", "translate(" + padding + "," + padding / 2 + ")")
@@ -583,12 +534,45 @@ function slide(){
   .attr("id", "yearText2");
   drawBuildings(svg2, document.getElementById("year").value, building_data2, city2, 0.7);
   drawInitial(svg2, city2, 0.05);
-
   document.getElementById("leftPop").innerHTML = "Population: " + population_data1["" + document.getElementById("year").value];
+  updatePop(true, population_data1["" + document.getElementById("year").value]);
   document.getElementById("rightPop").innerHTML = "Population: " + population_data2["" + document.getElementById("year").value];
+  updatePop(false, population_data2["" + document.getElementById("year").value]);
 }
-
   
+function updatePop(left, number){
+  var counter = Number(number.replace(/,/g, ''));
+  var array = [];
+  var i = 0;
+  while (i * 40000 < counter){
+    array.push(i);
+    i++;
+  }
+  if (left){
+    svgl.selectAll(".person").remove();
+    for (var x = 0; x < array.length; x++){
+      svgl.append("svg:image")
+      .attr('x', x%54*10)
+      .attr('y', Math.floor(x/54) * 23)
+      .attr('width', 7)
+      .attr('height', 20)
+      .attr("xlink:href", "images/person.png")
+      .attr("class", "person");
+    }
+  }
+  else {
+    svgr.selectAll(".person").remove();
+    for (var x = 0; x < array.length; x++){
+      svgr.append("svg:image")
+      .attr('x', x%54*10)
+      .attr('y', Math.floor(x/54) * 23)
+      .attr('width', 7)
+      .attr('height', 20)
+      .attr("xlink:href", "images/person.png")
+      .attr("class", "person");
+    }
+  }
+}
 
 </script>
 <!-- Optional JavaScript -->
